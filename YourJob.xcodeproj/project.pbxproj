@@ -31,6 +31,7 @@
 		2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6A2A2D0CA400649D61 /* WelcomeViewController.swift */; };
 		2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6C2A2D121200649D61 /* String+Localized.swift */; };
 		2615BA712A2D12DA00649D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2615BA732A2D12DA00649D61 /* Localizable.strings */; };
+		A55E4D362A2D3D1A008CCC2F /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E4D352A2D3D1A008CCC2F /* AppImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		2615BA6E2A2D127500649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2615BA722A2D12DA00649D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2615BA742A2D12DE00649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A55E4D352A2D3D1A008CCC2F /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,17 +96,18 @@
 		2615BA242A2CC9B500649D61 /* YourJob */ = {
 			isa = PBXGroup;
 			children = (
-				2615BA402A2CF0E400649D61 /* Extensions */,
 				2615BA412A2CF0F600649D61 /* Components */,
 				2615BA3A2A2CF04400649D61 /* Controllers */,
 				2615BA392A2CCAAC00649D61 /* Resources */,
 				2615BA252A2CC9B500649D61 /* AppDelegate.swift */,
-				2615BA5C2A2CFA4D00649D61 /* AppFont.swift */,
 				2615BA5E2A2CFE4F00649D61 /* AppString.swift */,
+				A55E4D352A2D3D1A008CCC2F /* AppImage.swift */,
 				2615BA602A2CFEFD00649D61 /* AppColor.swift */,
-				2615BA642A2D08AF00649D61 /* AppLog.swift */,
+				2615BA5C2A2CFA4D00649D61 /* AppFont.swift */,
 				2615BA622A2D037A00649D61 /* AppInfo.swift */,
+				2615BA642A2D08AF00649D61 /* AppLog.swift */,
 				2615BA332A2CC9B700649D61 /* Info.plist */,
+				2615BA402A2CF0E400649D61 /* Extensions */,
 			);
 			path = YourJob;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				2615BA5F2A2CFE4F00649D61 /* AppString.swift in Sources */,
 				2615BA652A2D08AF00649D61 /* AppLog.swift in Sources */,
 				2615BA5B2A2CF62600649D61 /* UIFont+Montserrat.swift in Sources */,
+				A55E4D362A2D3D1A008CCC2F /* AppImage.swift in Sources */,
 				2615BA672A2D09C900649D61 /* Date+ISO8601.swift in Sources */,
 				2615BA452A2CF1B600649D61 /* TestViewController.swift in Sources */,
 				2615BA262A2CC9B500649D61 /* AppDelegate.swift in Sources */,

@@ -10,13 +10,13 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow? = {
+    lazy var window: UIWindow? = {
         let window = UIWindow()
         window.backgroundColor = .systemBackground
         return window
     }()
     
-    let navigationController: UINavigationController = {
+    lazy var navigationController: UINavigationController = {
         let controller = UINavigationController(nibName: nil, bundle: nil)
         return controller
     }()

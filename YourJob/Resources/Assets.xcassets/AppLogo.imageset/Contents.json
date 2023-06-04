@@ -5,7 +5,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "Logo.svg",
+      "filename" : "YouJob-AppLogo.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -19,6 +19,7 @@
     "version" : 1
   },
   "properties" : {
+    "preserves-vector-representation" : true,
     "template-rendering-intent" : "original"
   }
 }

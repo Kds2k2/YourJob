@@ -33,7 +33,7 @@ class WelcomeViewController: UIViewController {
     
     var logoImageView: UIImageView = {
        let view = UIImageView()
-        view.image = UIImage(named: "logo.png")
+        view.image = AppImage.Logo.app
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -65,7 +65,7 @@ class WelcomeViewController: UIViewController {
         configuration.baseForegroundColor = AppColor.Button.Filled.foreground
         configuration.background.cornerRadius = 5
         let view = UIButton(configuration: configuration)
-        view.setAttributedTitle(NSAttributedString(string: AppString.Button.loginWithEmail.localized(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: AppString.Button.loginWithEmail.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.login() } ), for: .touchUpInside)
         return view
     }()
