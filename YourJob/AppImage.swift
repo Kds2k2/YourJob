@@ -58,4 +58,17 @@ struct AppImage {
                                         withConfiguration: configuration)?.withTintColor(.systemRed, renderingMode: .alwaysTemplate)
         }
     }
+    
+    struct Chevron {
+         private static let configuration = UIImage.SymbolConfiguration(weight: .regular)
+
+         static let up = UIImage(systemName: "chevron.up",
+                                   withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
+         static let down = UIImage(systemName: "chevron.down",
+                                    withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
+         static let left = UIImage(systemName: "chevron.left",
+                                   withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
+         static let right = UIImage(systemName: "chevron.right",
+                                    withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
+     }
 }

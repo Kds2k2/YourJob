@@ -35,3 +35,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
+
+//MARK: About
+extension AppDelegate {
+    @objc static func showAbout() {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let imageAttachment = AppImage.Logo.app?.makeAttachment(maxPixelSize: Int(72 * AppFont.scale))
+        delegate.navigationController.presentAlert(imageAttachment: imageAttachment, attrubutedMessage: aboutInfo)
+    }
+    
+    static var aboutInfo: NSAttributedString {
+        let attributedInfo = NSMutableAttributedString()
+        attributedInfo.append(NSAttributedString(string: AppString.Common.version.localized() + " ",
+                                                 attributes: [.font: AppFont.Alert.message, .foregroundColor: UIColor.label]))
+        attributedInfo.append(NSAttributedString(string: "\(AppInfo.bundleVersion) (\(AppInfo.bundleBuild))\n",
+                                                 attributes: [.font: AppFont.Alert.message, .foregroundColor: UIColor.secondaryLabel]))
+        return attributedInfo
+    }
+}

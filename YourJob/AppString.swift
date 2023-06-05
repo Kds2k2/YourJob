@@ -55,8 +55,25 @@ struct AppString {
     
     struct Button {
         static let loginWithEmail = "Login With Email"
+        static let login = "Login"
         static let registerHere = "Register Here"
+        static let forgotPassword = "Forgot Password?"
+        static let resetPassword = "Reset Password"
+        static let resendAgain = "Resend Again"
         static let close = "Close"
+    }
+    
+    struct Input {
+        struct Placeholder {
+            static let email = "Email"
+            static let password = "Password"
+            static let confirmPassword = "Confirm Password"
+            static let confrimationCode = "Confrimation Code"
+        }
+    }
+    
+    struct Common {
+        static let version = "Version"
     }
 }
     

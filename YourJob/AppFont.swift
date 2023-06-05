@@ -26,4 +26,9 @@ struct AppFont {
     struct Button {
         static let title = UIFont.montserratFont(ofSize: 14 * scale, weight: .regular)
     }
+    
+    struct Input {
+        static let text = UIFont.montserratFont(ofSize: 14 * scale, weight: .regular)
+        static let placeholder = UIFont.montserratFont(ofSize: 14 * scale, weight: .light)
+    }
 }

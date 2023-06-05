@@ -27,4 +27,11 @@ struct AppColor {
             static let foreground = UIColor.systemBlue
         }
     }
+    
+    struct Input {
+        static let text = UIColor.label
+        static let placeholder = UIColor.secondaryLabel
+        static let border = UIColor.separator
+        static let background = UIColor.white.withAlphaComponent(0.08)
+    }
 }

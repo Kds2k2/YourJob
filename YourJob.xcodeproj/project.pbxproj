@@ -34,6 +34,8 @@
 		26813B172A2DF04500746C74 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26813B162A2DF04500746C74 /* AppLayout.swift */; };
 		268BF9862A2E294500DD6EC2 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BF9852A2E294500DD6EC2 /* UIViewController+Alert.swift */; };
 		268BF9882A2E311F00DD6EC2 /* UIImage+Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */; };
+		268BF98A2A2E5EC600DD6EC2 /* UIView+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BF9892A2E5EC600DD6EC2 /* UIView+FirstResponder.swift */; };
+		268BF98C2A2E61FF00DD6EC2 /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BF98B2A2E61FF00DD6EC2 /* SecureTextField.swift */; };
 		26C165312A2E002400568A78 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165302A2E002400568A78 /* BackgroundView.swift */; };
 		26C165332A2E0F3E00568A78 /* LoginWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165322A2E0F3E00568A78 /* LoginWithEmailViewController.swift */; };
 		26C165352A2E0F5600568A78 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165342A2E0F5600568A78 /* ResetPasswordViewController.swift */; };
@@ -74,6 +76,8 @@
 		26813B162A2DF04500746C74 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 		268BF9852A2E294500DD6EC2 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Attachment.swift"; sourceTree = "<group>"; };
+		268BF9892A2E5EC600DD6EC2 /* UIView+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FirstResponder.swift"; sourceTree = "<group>"; };
+		268BF98B2A2E61FF00DD6EC2 /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
 		26C165302A2E002400568A78 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		26C165322A2E0F3E00568A78 /* LoginWithEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewController.swift; sourceTree = "<group>"; };
 		26C165342A2E0F5600568A78 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				2615BA6C2A2D121200649D61 /* String+Localized.swift */,
 				268BF9852A2E294500DD6EC2 /* UIViewController+Alert.swift */,
 				268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */,
+				268BF9892A2E5EC600DD6EC2 /* UIView+FirstResponder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,7 +213,8 @@
 		2615BA412A2CF0F600649D61 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				26C165302A2E002400568A78 /* BackgroundView.swift */,
+				268BF98E2A2E623800DD6EC2 /* SecureTextField */,
+				268BF98D2A2E622C00DD6EC2 /* BackgroundView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -236,6 +242,22 @@
 				2615BA442A2CF1B600649D61 /* TestViewController.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		268BF98D2A2E622C00DD6EC2 /* BackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				26C165302A2E002400568A78 /* BackgroundView.swift */,
+			);
+			path = BackgroundView;
+			sourceTree = "<group>";
+		};
+		268BF98E2A2E623800DD6EC2 /* SecureTextField */ = {
+			isa = PBXGroup;
+			children = (
+				268BF98B2A2E61FF00DD6EC2 /* SecureTextField.swift */,
+			);
+			path = SecureTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +348,7 @@
 				2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */,
 				26813B172A2DF04500746C74 /* AppLayout.swift in Sources */,
 				26C165352A2E0F5600568A78 /* ResetPasswordViewController.swift in Sources */,
+				268BF98A2A2E5EC600DD6EC2 /* UIView+FirstResponder.swift in Sources */,
 				2615BA5F2A2CFE4F00649D61 /* AppString.swift in Sources */,
 				26C165372A2E0F6B00568A78 /* SignUpRegisterViewController.swift in Sources */,
 				2615BA652A2D08AF00649D61 /* AppLog.swift in Sources */,
@@ -334,6 +357,7 @@
 				2615BA672A2D09C900649D61 /* Date+ISO8601.swift in Sources */,
 				2615BA452A2CF1B600649D61 /* TestViewController.swift in Sources */,
 				2615BA262A2CC9B500649D61 /* AppDelegate.swift in Sources */,
+				268BF98C2A2E61FF00DD6EC2 /* SecureTextField.swift in Sources */,
 				26C165312A2E002400568A78 /* BackgroundView.swift in Sources */,
 				2615BA612A2CFEFD00649D61 /* AppColor.swift in Sources */,
 				26C165332A2E0F3E00568A78 /* LoginWithEmailViewController.swift in Sources */,

@@ -39,10 +39,12 @@ class WelcomeViewController: UIViewController {
         return view
     }()
     
-    var logoImageView: UIImageView = {
+    lazy var logoImageView: UIImageView = {
        let view = UIImageView()
         view.image = AppImage.Logo.app
         view.contentMode = .scaleAspectFit
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: AppDelegate.self, action: #selector(AppDelegate.showAbout)))
         return view
     }()
     
@@ -129,35 +131,35 @@ class WelcomeViewController: UIViewController {
         
         contentView.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
+        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         logoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -200).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: AppLayout.Logo.height).isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40).isActive = true
         
         contentView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppInfo.isIpad ? 150 : 30).isActive = true
-        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppInfo.isIpad ? -150 : -30).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         
         contentView.addSubview(signUpButton)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        signUpButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppInfo.isIpad ? 150 : 30).isActive = true
-        signUpButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppInfo.isIpad ? -150 : -30).isActive = true
+        signUpButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        signUpButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         signUpButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
         signUpButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
         
         contentView.addSubview(signUpLabel)
         signUpLabel.translatesAutoresizingMaskIntoConstraints = false
         signUpLabel.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: 0).isActive = true
-        signUpLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        signUpLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
+        signUpLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        signUpLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         
         contentView.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -166,19 +168,9 @@ class WelcomeViewController: UIViewController {
         loginButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
     }
-        
+    
     private func login() {
-        presentInfo(title: "Login", message: "\n" + "Lorem ipsum dolor sit amet. Est quisquam impedit ut nulla minus et ipsum adipisci in dolorum commodi.", actions: [
-            UIAlertAction(title: "Accept", style: .default, handler: { _ in self.accept()}),
-            UIAlertAction(title: "Close", style: .cancel, handler: { _ in self.close() })
-        ])
-    }
-    
-    private func accept() {
-        print("LogIn")
-    }
-    
-    private func close() {
-        print("LogOut")
+        let viewController = LoginWithEmailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

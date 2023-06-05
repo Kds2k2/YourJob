@@ -23,4 +23,9 @@ struct AppLayout {
         static let height: CGFloat = 100
         static let width: CGFloat = 100
     }
+    
+    struct Input {
+        static let borderWidth: CGFloat = 0.5
+        static let cornerRadius: CGFloat = 5
+    }
 }

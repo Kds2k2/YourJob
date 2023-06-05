@@ -43,6 +43,8 @@ class LoginWithEmailViewController: UIViewController {
        let view = UIImageView()
         view.image = AppImage.Logo.app
         view.contentMode = .scaleAspectFit
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: AppDelegate.self, action: #selector(AppDelegate.showAbout)))
         return view
     }()
     
@@ -67,10 +69,75 @@ class LoginWithEmailViewController: UIViewController {
         return view
     }()
     
+    lazy var usernameInputField: UITextField = {
+        let view = UITextField()
+        view.backgroundColor = AppColor.Input.background
+        view.borderStyle = .roundedRect
+        view.clearButtonMode = .always
+        view.textContentType = .emailAddress
+        view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.returnKeyType = .next
+        view.enablesReturnKeyAutomatically = true
+        view.font = AppFont.Input.text
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.email, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.textColor = AppColor.Input.text
+        view.layer.cornerRadius = AppLayout.Input.cornerRadius
+        view.layer.borderColor = AppColor.Input.border.cgColor
+        view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.delegate = self
+        return view
+    }()
+    
+    lazy var passwordInputField: UITextField = {
+        let view = SecureTextField()
+        view.backgroundColor = AppColor.Input.background
+        view.borderStyle = .roundedRect
+        view.clearButtonMode = .always
+        view.textContentType = .password
+        view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.returnKeyType = .default
+        view.enablesReturnKeyAutomatically = true
+        view.isSecureTextEntry = true
+        view.isSecureTextToggleEnabled = true
+        view.font = AppFont.Input.text
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.password, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.textColor = AppColor.Input.text
+        view.layer.cornerRadius = AppLayout.Input.cornerRadius
+        view.layer.borderColor = AppColor.Input.border.cgColor
+        view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.delegate = self
+        return view
+    }()
+    
+    lazy var loginWithEmailButton: UIButton = {
+        var configuration = UIButton.Configuration.filled()
+        configuration.baseBackgroundColor = AppColor.Button.Filled.background
+        configuration.baseForegroundColor = AppColor.Button.Filled.foreground
+        configuration.background.cornerRadius = AppLayout.Button.cornerRadius
+        let view = UIButton(configuration: configuration)
+        view.setAttributedTitle(NSAttributedString(string: AppString.Button.login.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.addAction(UIAction(handler: { _ in self.login() } ), for: .touchUpInside)
+        return view
+    }()
+    
+    lazy var forgotPasswordButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.baseBackgroundColor = AppColor.Button.Plaine.background
+        configuration.baseForegroundColor = AppColor.Button.Plaine.foreground
+        let view = UIButton(configuration: configuration)
+        view.setAttributedTitle(NSAttributedString(string: AppString.Button.forgotPassword.localized(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.addAction(UIAction(handler: { _ in self.resetPassword() } ), for: .touchUpInside)
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemBackground
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: AppImage.Chevron.left, style: .plain, target: self, action: #selector(cancel))
         
         view.addSubview(backgroundView)
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,21 +164,142 @@ class LoginWithEmailViewController: UIViewController {
         
         contentView.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100).isActive = true
+        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        logoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -220).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: AppLayout.Logo.height).isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40).isActive = true
         
         contentView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppInfo.isIpad ? 150 : 30).isActive = true
-        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppInfo.isIpad ? -150 : -30).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+
+        contentView.addSubview(usernameInputField)
+        usernameInputField.translatesAutoresizingMaskIntoConstraints = false
+        usernameInputField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 60).isActive = true
+        usernameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        usernameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+
+        contentView.addSubview(passwordInputField)
+        passwordInputField.translatesAutoresizingMaskIntoConstraints = false
+        passwordInputField.topAnchor.constraint(equalTo: usernameInputField.bottomAnchor, constant: 10).isActive = true
+        passwordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        passwordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        
+        contentView.addSubview(loginWithEmailButton)
+        loginWithEmailButton.translatesAutoresizingMaskIntoConstraints = false
+        loginWithEmailButton.topAnchor.constraint(equalTo: passwordInputField.bottomAnchor, constant: 10).isActive = true
+        loginWithEmailButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        loginWithEmailButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        loginWithEmailButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
+        
+        contentView.addSubview(forgotPasswordButton)
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        forgotPasswordButton.topAnchor.constraint(equalTo: loginWithEmailButton.bottomAnchor, constant: 10).isActive = true
+        forgotPasswordButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        forgotPasswordButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        forgotPasswordButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        appendKeyboardObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardObservers()
+    }
+    
+    @objc private func cancel() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func login() {
+        print("login")
+    }
+    
+    private func resetPassword() {
+        let viewController = ResetPasswordViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+//MARK: UITextFieldDelegate
+extension LoginWithEmailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameInputField {
+            passwordInputField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
+
+//MARK: KeyBoard
+extension LoginWithEmailViewController {
+    private func appendKeyboardObservers () {
+         NotificationCenter.default.addObserver(self,
+             selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+         NotificationCenter.default.addObserver(self,
+             selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+     }
+
+     private func removeKeyboardObservers () {
+         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+     }
+    
+    func animateWithKeyboard(notification: NSNotification, animations: ((_ keyboardFrame: CGRect) -> Void)?) {
+         let frameKey = UIResponder.keyboardFrameEndUserInfoKey
+         let keyboardFrameValue = notification.userInfo![frameKey] as! NSValue
+         
+         let durationKey = UIResponder.keyboardAnimationDurationUserInfoKey
+         let duration = notification.userInfo![durationKey] as! Double
+         
+         let curveKey = UIResponder.keyboardAnimationCurveUserInfoKey
+         let curveValue = notification.userInfo![curveKey] as! Int
+         let curve = UIView.AnimationCurve(rawValue: curveValue)!
+
+         let animator = UIViewPropertyAnimator(duration: duration, curve: curve) {
+             animations?(keyboardFrameValue.cgRectValue)
+             self.view?.layoutIfNeeded()
+         }
+         animator.startAnimation()
+     }
+    
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            guard let activeView = self.view.firstResponder else { return }
+            
+            let userInfo = notification.userInfo!
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+            
+            let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+            self.scrollView.contentInset = contentInset
+            self.scrollView.scrollIndicatorInsets = contentInset
+            
+            let relativeFrame = activeView.convert(activeView.bounds, to: self.scrollView)
+            let spaceAboveKeyboard = self.scrollView.frame.height - keyboardFrame.height
+            
+            let offset = relativeFrame.origin.y - (spaceAboveKeyboard - activeView.frame.height - 80);
+            self.scrollView.contentOffset = CGPoint(x: 0, y: max(0, offset))
+        }
+    }
+
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            self.scrollView.contentInset = UIEdgeInsets.zero
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+        }
     }
 }
