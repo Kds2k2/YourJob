@@ -15,6 +15,7 @@ struct AppFont {
     struct View {
         static let title = UIFont.montserratFont(ofSize: 24 * scale, weight: .light)
         static let description = UIFont.montserratFont(ofSize: 14 * scale, weight: .light)
+        static let resendCode = UIFont.montserratFont(ofSize: 14 * scale, weight: .light)
     }
     
     struct Button {

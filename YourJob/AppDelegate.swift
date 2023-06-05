@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppLog.info("System: \(AppInfo.systemInfo)")
         AppLog.info("Locale: \(AppInfo.localeInfo)")
         
-        navigationController.pushViewController(WelcomeViewController(), animated: false)
+        //navigationController.pushViewController(WelcomeViewController(), animated: false)
+        navigationController.pushViewController(SignUpCompleteViewController(), animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         

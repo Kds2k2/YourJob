@@ -13,6 +13,7 @@ struct AppColor {
     struct View {
         static let title = UIColor.label
         static let description = UIColor.label
+        static let resendCode = UIColor.systemBlue
         static let background = UIColor.systemBackground
     }
     
