@@ -32,6 +32,8 @@
 		2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6C2A2D121200649D61 /* String+Localized.swift */; };
 		2615BA712A2D12DA00649D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2615BA732A2D12DA00649D61 /* Localizable.strings */; };
 		26813B172A2DF04500746C74 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26813B162A2DF04500746C74 /* AppLayout.swift */; };
+		268BF9862A2E294500DD6EC2 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BF9852A2E294500DD6EC2 /* UIViewController+Alert.swift */; };
+		268BF9882A2E311F00DD6EC2 /* UIImage+Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */; };
 		26C165312A2E002400568A78 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165302A2E002400568A78 /* BackgroundView.swift */; };
 		26C165332A2E0F3E00568A78 /* LoginWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165322A2E0F3E00568A78 /* LoginWithEmailViewController.swift */; };
 		26C165352A2E0F5600568A78 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165342A2E0F5600568A78 /* ResetPasswordViewController.swift */; };
@@ -70,6 +72,8 @@
 		2615BA722A2D12DA00649D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2615BA742A2D12DE00649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		26813B162A2DF04500746C74 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
+		268BF9852A2E294500DD6EC2 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Attachment.swift"; sourceTree = "<group>"; };
 		26C165302A2E002400568A78 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		26C165322A2E0F3E00568A78 /* LoginWithEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewController.swift; sourceTree = "<group>"; };
 		26C165342A2E0F5600568A78 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		2615BA242A2CC9B500649D61 /* YourJob */ = {
 			isa = PBXGroup;
 			children = (
+				2615BA402A2CF0E400649D61 /* Extensions */,
 				2615BA412A2CF0F600649D61 /* Components */,
 				2615BA3A2A2CF04400649D61 /* Controllers */,
 				2615BA392A2CCAAC00649D61 /* Resources */,
@@ -120,7 +125,6 @@
 				2615BA642A2D08AF00649D61 /* AppLog.swift */,
 				26813B162A2DF04500746C74 /* AppLayout.swift */,
 				2615BA332A2CC9B700649D61 /* Info.plist */,
-				2615BA402A2CF0E400649D61 /* Extensions */,
 			);
 			path = YourJob;
 			sourceTree = "<group>";
@@ -195,6 +199,8 @@
 				2615BA5A2A2CF62600649D61 /* UIFont+Montserrat.swift */,
 				2615BA662A2D09C900649D61 /* Date+ISO8601.swift */,
 				2615BA6C2A2D121200649D61 /* String+Localized.swift */,
+				268BF9852A2E294500DD6EC2 /* UIViewController+Alert.swift */,
+				268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				268BF9882A2E311F00DD6EC2 /* UIImage+Attachment.swift in Sources */,
 				2615BA5D2A2CFA4D00649D61 /* AppFont.swift in Sources */,
 				2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */,
 				26813B172A2DF04500746C74 /* AppLayout.swift in Sources */,
@@ -331,6 +338,7 @@
 				2615BA612A2CFEFD00649D61 /* AppColor.swift in Sources */,
 				26C165332A2E0F3E00568A78 /* LoginWithEmailViewController.swift in Sources */,
 				26C165392A2E0F7A00568A78 /* SignUpCompleteViewController.swift in Sources */,
+				268BF9862A2E294500DD6EC2 /* UIViewController+Alert.swift in Sources */,
 				2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */,
 				2615BA632A2D037A00649D61 /* AppInfo.swift in Sources */,
 			);

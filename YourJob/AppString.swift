@@ -43,9 +43,20 @@ struct AppString {
         }
     }
     
+    struct Alert {
+        static let error = "Error"
+        static let info = "Information"
+        static let warning = "Warning"
+        static let question = "Question"
+        static let success = "Success"
+        static let failure = "Failure"
+        static let confirm = "Confirmation"
+    }
+    
     struct Button {
         static let loginWithEmail = "Login With Email"
         static let registerHere = "Register Here"
+        static let close = "Close"
     }
 }
     

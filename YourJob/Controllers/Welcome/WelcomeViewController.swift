@@ -95,7 +95,7 @@ class WelcomeViewController: UIViewController {
         configuration.baseForegroundColor = AppColor.Button.Plaine.foreground
         let view = UIButton(configuration: configuration)
         view.setAttributedTitle(NSAttributedString(string: AppString.Button.registerHere.localized(), attributes: [.font: AppFont.Button.title]), for: .normal)
-        view.addAction(UIAction(handler: { _ in self.signUp() } ), for: .touchUpInside)
+        view.addAction(UIAction(handler: { _ in self.login() } ), for: .touchUpInside)
         return view
     }()
     
@@ -166,12 +166,19 @@ class WelcomeViewController: UIViewController {
         loginButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
     }
-    
+        
     private func login() {
-        print("Login")
+        presentInfo(title: "Login", message: "\n" + "Lorem ipsum dolor sit amet. Est quisquam impedit ut nulla minus et ipsum adipisci in dolorum commodi.", actions: [
+            UIAlertAction(title: "Accept", style: .default, handler: { _ in self.accept()}),
+            UIAlertAction(title: "Close", style: .cancel, handler: { _ in self.close() })
+        ])
     }
     
-    private func signUp() {
-        print("Sign Up")
+    private func accept() {
+        print("LogIn")
+    }
+    
+    private func close() {
+        print("LogOut")
     }
 }

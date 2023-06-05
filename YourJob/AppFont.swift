@@ -18,6 +18,11 @@ struct AppFont {
         static let resendCode = UIFont.montserratFont(ofSize: 14 * scale, weight: .light)
     }
     
+    struct Alert {
+        static let title = UIFont.systemFont(ofSize: 18 * scale, weight: .bold)
+        static let message = UIFont.systemFont(ofSize: 14 * scale, weight: .regular)
+    }
+    
     struct Button {
         static let title = UIFont.montserratFont(ofSize: 14 * scale, weight: .regular)
     }
