@@ -63,7 +63,7 @@ class WelcomeViewController: UIViewController {
         var configuration = UIButton.Configuration.filled()
         configuration.baseBackgroundColor = AppColor.Button.Filled.background
         configuration.baseForegroundColor = AppColor.Button.Filled.foreground
-        configuration.background.cornerRadius = 5
+        configuration.background.cornerRadius = AppLayout.Button.cornerRadius
         let view = UIButton(configuration: configuration)
         view.setAttributedTitle(NSAttributedString(string: AppString.Button.loginWithEmail.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.login() } ), for: .touchUpInside)
@@ -117,7 +117,7 @@ class WelcomeViewController: UIViewController {
         logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         logoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -200).isActive = true
-        logoImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: AppLayout.Logo.height).isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -135,7 +135,7 @@ class WelcomeViewController: UIViewController {
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppInfo.isIpad ? 150 : 30).isActive = true
         signUpButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppInfo.isIpad ? -150 : -30).isActive = true
-        signUpButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
         signUpButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
         
         contentView.addSubview(signUpLabel)
@@ -147,9 +147,9 @@ class WelcomeViewController: UIViewController {
         contentView.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.bottomAnchor.constraint(equalTo: signUpLabel.topAnchor, constant: -40).isActive = true
-        loginButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppInfo.isIpad ? 150 : 30).isActive = true
-        loginButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppInfo.isIpad ? -150 : -30).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        loginButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        loginButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
     }
     
     private func login() {
