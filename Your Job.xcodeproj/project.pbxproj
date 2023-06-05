@@ -31,11 +31,12 @@
 		2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6A2A2D0CA400649D61 /* WelcomeViewController.swift */; };
 		2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6C2A2D121200649D61 /* String+Localized.swift */; };
 		2615BA712A2D12DA00649D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2615BA732A2D12DA00649D61 /* Localizable.strings */; };
+		26813B172A2DF04500746C74 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26813B162A2DF04500746C74 /* AppLayout.swift */; };
 		A55E4D362A2D3D1A008CCC2F /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E4D352A2D3D1A008CCC2F /* AppImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2615BA222A2CC9B500649D61 /* YourJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2615BA222A2CC9B500649D61 /* Your Job.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Job.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2615BA252A2CC9B500649D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2615BA2E2A2CC9B700649D61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2615BA312A2CC9B700649D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		2615BA6E2A2D127500649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2615BA722A2D12DA00649D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2615BA742A2D12DE00649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		26813B162A2DF04500746C74 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 		A55E4D352A2D3D1A008CCC2F /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +90,7 @@
 		2615BA232A2CC9B500649D61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2615BA222A2CC9B500649D61 /* YourJob.app */,
+				2615BA222A2CC9B500649D61 /* Your Job.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +108,7 @@
 				2615BA5C2A2CFA4D00649D61 /* AppFont.swift */,
 				2615BA622A2D037A00649D61 /* AppInfo.swift */,
 				2615BA642A2D08AF00649D61 /* AppLog.swift */,
+				26813B162A2DF04500746C74 /* AppLayout.swift */,
 				2615BA332A2CC9B700649D61 /* Info.plist */,
 				2615BA402A2CF0E400649D61 /* Extensions */,
 			);
@@ -217,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2615BA212A2CC9B500649D61 /* YourJob */ = {
+		2615BA212A2CC9B500649D61 /* Your Job */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2615BA362A2CC9B700649D61 /* Build configuration list for PBXNativeTarget "YourJob" */;
+			buildConfigurationList = 2615BA362A2CC9B700649D61 /* Build configuration list for PBXNativeTarget "Your Job" */;
 			buildPhases = (
 				2615BA1E2A2CC9B500649D61 /* Sources */,
 				2615BA1F2A2CC9B500649D61 /* Frameworks */,
@@ -229,9 +232,9 @@
 			);
 			dependencies = (
 			);
-			name = YourJob;
+			name = "Your Job";
 			productName = YourJob;
-			productReference = 2615BA222A2CC9B500649D61 /* YourJob.app */;
+			productReference = 2615BA222A2CC9B500649D61 /* Your Job.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +267,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2615BA212A2CC9B500649D61 /* YourJob */,
+				2615BA212A2CC9B500649D61 /* Your Job */,
 			);
 		};
 /* End PBXProject section */
@@ -299,6 +302,7 @@
 			files = (
 				2615BA5D2A2CFA4D00649D61 /* AppFont.swift in Sources */,
 				2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */,
+				26813B172A2DF04500746C74 /* AppLayout.swift in Sources */,
 				2615BA5F2A2CFE4F00649D61 /* AppString.swift in Sources */,
 				2615BA652A2D08AF00649D61 /* AppLog.swift in Sources */,
 				2615BA5B2A2CF62600649D61 /* UIFont+Montserrat.swift in Sources */,
@@ -518,7 +522,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2615BA362A2CC9B700649D61 /* Build configuration list for PBXNativeTarget "YourJob" */ = {
+		2615BA362A2CC9B700649D61 /* Build configuration list for PBXNativeTarget "Your Job" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2615BA372A2CC9B700649D61 /* Debug */,
