@@ -32,6 +32,7 @@
 		2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6C2A2D121200649D61 /* String+Localized.swift */; };
 		2615BA712A2D12DA00649D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2615BA732A2D12DA00649D61 /* Localizable.strings */; };
 		26813B172A2DF04500746C74 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26813B162A2DF04500746C74 /* AppLayout.swift */; };
+		26C165312A2E002400568A78 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165302A2E002400568A78 /* BackgroundView.swift */; };
 		A55E4D362A2D3D1A008CCC2F /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E4D352A2D3D1A008CCC2F /* AppImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		2615BA722A2D12DA00649D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2615BA742A2D12DE00649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		26813B162A2DF04500746C74 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
+		26C165302A2E002400568A78 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		A55E4D352A2D3D1A008CCC2F /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 		2615BA412A2CF0F600649D61 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				26C165302A2E002400568A78 /* BackgroundView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				2615BA672A2D09C900649D61 /* Date+ISO8601.swift in Sources */,
 				2615BA452A2CF1B600649D61 /* TestViewController.swift in Sources */,
 				2615BA262A2CC9B500649D61 /* AppDelegate.swift in Sources */,
+				26C165312A2E002400568A78 /* BackgroundView.swift in Sources */,
 				2615BA612A2CFEFD00649D61 /* AppColor.swift in Sources */,
 				2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */,
 				2615BA632A2D037A00649D61 /* AppInfo.swift in Sources */,

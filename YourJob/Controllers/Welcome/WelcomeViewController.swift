@@ -10,6 +10,14 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    var backgroundView: BackgroundView = {
+        let view = BackgroundView()
+        view.imageView.image = AppImage.BackGround.lightBlue
+        //view.effectView.effect = UIBlurEffect(style: .regular)
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.backgroundColor = .clear
@@ -94,7 +102,14 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = AppColor.View.background
+        view.backgroundColor = .clear
+        
+        view.addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        backgroundView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        backgroundView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false

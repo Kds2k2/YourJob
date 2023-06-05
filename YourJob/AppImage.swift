@@ -13,4 +13,8 @@ struct AppImage {
     struct Logo {
         static let app = UIImage(named: "AppLogo")?.withRenderingMode(.alwaysOriginal)
     }
+    
+    struct BackGround {
+        static let lightBlue = UIImage(named: "LightBlue")
+    }
 }
