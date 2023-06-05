@@ -13,10 +13,12 @@ struct AppLayout {
         static let left: CGFloat = AppInfo.isIpad ? 150 : 30
         static let right: CGFloat = AppInfo.isIpad ? -150 : -30
     }
+    
     struct Button {
         static let cornerRadius: CGFloat = 5
         static let height: CGFloat = 40
     }
+    
     struct Logo {
         static let height: CGFloat = 100
         static let width: CGFloat = 100
