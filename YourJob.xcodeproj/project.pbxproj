@@ -36,7 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2615BA222A2CC9B500649D61 /* Your Job.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Job.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2615BA222A2CC9B500649D61 /* YourJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2615BA252A2CC9B500649D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2615BA2E2A2CC9B700649D61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2615BA312A2CC9B700649D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		2615BA232A2CC9B500649D61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2615BA222A2CC9B500649D61 /* Your Job.app */,
+				2615BA222A2CC9B500649D61 /* YourJob.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2615BA212A2CC9B500649D61 /* Your Job */ = {
+		2615BA212A2CC9B500649D61 /* YourJob */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2615BA362A2CC9B700649D61 /* Build configuration list for PBXNativeTarget "Your Job" */;
+			buildConfigurationList = 2615BA362A2CC9B700649D61 /* Build configuration list for PBXNativeTarget "YourJob" */;
 			buildPhases = (
 				2615BA1E2A2CC9B500649D61 /* Sources */,
 				2615BA1F2A2CC9B500649D61 /* Frameworks */,
@@ -232,9 +232,9 @@
 			);
 			dependencies = (
 			);
-			name = "Your Job";
+			name = YourJob;
 			productName = YourJob;
-			productReference = 2615BA222A2CC9B500649D61 /* Your Job.app */;
+			productReference = 2615BA222A2CC9B500649D61 /* YourJob.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -253,7 +253,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2615BA1D2A2CC9B500649D61 /* Build configuration list for PBXProject "Your Job" */;
+			buildConfigurationList = 2615BA1D2A2CC9B500649D61 /* Build configuration list for PBXProject "YourJob" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -267,7 +267,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2615BA212A2CC9B500649D61 /* Your Job */,
+				2615BA212A2CC9B500649D61 /* YourJob */,
 			);
 		};
 /* End PBXProject section */
@@ -465,6 +465,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YourJob/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Your Job";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -492,6 +494,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YourJob/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Your Job";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -513,7 +517,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2615BA1D2A2CC9B500649D61 /* Build configuration list for PBXProject "Your Job" */ = {
+		2615BA1D2A2CC9B500649D61 /* Build configuration list for PBXProject "YourJob" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2615BA342A2CC9B700649D61 /* Debug */,
@@ -522,7 +526,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2615BA362A2CC9B700649D61 /* Build configuration list for PBXNativeTarget "Your Job" */ = {
+		2615BA362A2CC9B700649D61 /* Build configuration list for PBXNativeTarget "YourJob" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2615BA372A2CC9B700649D61 /* Debug */,
