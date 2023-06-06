@@ -69,10 +69,146 @@ class SignUpRegisterViewController: UIViewController {
         return view
     }()
     
+    lazy var firstNameInputField: UITextField = {
+        let view = UITextField()
+        view.backgroundColor = AppColor.Input.background
+        view.borderStyle = .roundedRect
+        view.clearButtonMode = .always
+        view.textContentType = .givenName
+        view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.returnKeyType = .next
+        view.enablesReturnKeyAutomatically = true
+        view.font = AppFont.Input.text
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.firstName, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.textColor = AppColor.Input.text
+        view.layer.cornerRadius = AppLayout.Input.cornerRadius
+        view.layer.borderColor = AppColor.Input.border.cgColor
+        view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.delegate = self
+        return view
+    }()
+    
+    lazy var lastNameInputField: UITextField = {
+        let view = UITextField()
+        view.backgroundColor = AppColor.Input.background
+        view.borderStyle = .roundedRect
+        view.clearButtonMode = .always
+        view.textContentType = .familyName
+        view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.returnKeyType = .next
+        view.enablesReturnKeyAutomatically = true
+        view.font = AppFont.Input.text
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.lastName, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.textColor = AppColor.Input.text
+        view.layer.cornerRadius = AppLayout.Input.cornerRadius
+        view.layer.borderColor = AppColor.Input.border.cgColor
+        view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.delegate = self
+        return view
+    }()
+    
+    lazy var phoneNumberInputField: UITextField = {
+        let view = UITextField()
+        view.backgroundColor = AppColor.Input.background
+        view.borderStyle = .roundedRect
+        view.clearButtonMode = .always
+        view.textContentType = .telephoneNumber
+        view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.returnKeyType = .next
+        view.enablesReturnKeyAutomatically = true
+        view.font = AppFont.Input.text
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.phone, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.textColor = AppColor.Input.text
+        view.layer.cornerRadius = AppLayout.Input.cornerRadius
+        view.layer.borderColor = AppColor.Input.border.cgColor
+        view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.keyboardType = .phonePad
+        view.delegate = self
+        return view
+    }()
+    
+    lazy var emailAddressInputField: UITextField = {
+        let view = UITextField()
+        view.backgroundColor = AppColor.Input.background
+        view.borderStyle = .roundedRect
+        view.clearButtonMode = .always
+        view.textContentType = .emailAddress
+        view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.returnKeyType = .next
+        view.enablesReturnKeyAutomatically = true
+        view.font = AppFont.Input.text
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.email, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.textColor = AppColor.Input.text
+        view.layer.cornerRadius = AppLayout.Input.cornerRadius
+        view.layer.borderColor = AppColor.Input.border.cgColor
+        view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.keyboardType = .emailAddress
+        view.delegate = self
+        return view
+    }()
+    
+    lazy var passwordInputField: UITextField = {
+        let view = SecureTextField()
+        view.backgroundColor = AppColor.Input.background
+        view.borderStyle = .roundedRect
+        view.textContentType = .password
+        view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.returnKeyType = .next
+        view.enablesReturnKeyAutomatically = true
+        view.isSecureTextEntry = true
+        view.isSecureTextToggleEnabled = true
+        view.font = AppFont.Input.text
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.password, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.textColor = AppColor.Input.text
+        view.layer.cornerRadius = AppLayout.Input.cornerRadius
+        view.layer.borderColor = AppColor.Input.border.cgColor
+        view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.delegate = self
+        return view
+    }()
+    
+    lazy var confirmPasswordInputField: UITextField = {
+        let view = SecureTextField()
+        view.backgroundColor = AppColor.Input.background
+        view.borderStyle = .roundedRect
+        view.clearButtonMode = .always
+        view.textContentType = .password
+        view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.returnKeyType = .default
+        view.enablesReturnKeyAutomatically = true
+        view.isSecureTextEntry = true
+        view.isSecureTextToggleEnabled = true
+        view.font = AppFont.Input.text
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confirmPassword, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.textColor = AppColor.Input.text
+        view.layer.cornerRadius = AppLayout.Input.cornerRadius
+        view.layer.borderColor = AppColor.Input.border.cgColor
+        view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.delegate = self
+        return view
+    }()
+    
+    lazy var createAccountButton: UIButton = {
+        var configuration = UIButton.Configuration.filled()
+        configuration.baseBackgroundColor = AppColor.Button.Filled.background
+        configuration.baseForegroundColor = AppColor.Button.Filled.foreground
+        configuration.background.cornerRadius = AppLayout.Button.cornerRadius
+        let view = UIButton(configuration: configuration)
+        view.setAttributedTitle(NSAttributedString(string: AppString.Button.login.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.addAction(UIAction(handler: { _ in self.createAccount() } ), for: .touchUpInside)
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .systemBackground
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: AppImage.Chevron.left, style: .plain, target: self, action: #selector(cancel))
         
         view.addSubview(backgroundView)
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +237,7 @@ class SignUpRegisterViewController: UIViewController {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
         logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
-        logoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -220).isActive = true
+        logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 70).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: AppLayout.Logo.height).isActive = true
         
         contentView.addSubview(titleLabel)
@@ -110,12 +246,153 @@ class SignUpRegisterViewController: UIViewController {
         titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40).isActive = true
         
-        
-        
         contentView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
         descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        
+        contentView.addSubview(firstNameInputField)
+        firstNameInputField.translatesAutoresizingMaskIntoConstraints = false
+        firstNameInputField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 60).isActive = true
+        firstNameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        firstNameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        
+        contentView.addSubview(lastNameInputField)
+        lastNameInputField.translatesAutoresizingMaskIntoConstraints = false
+        lastNameInputField.topAnchor.constraint(equalTo: firstNameInputField.bottomAnchor, constant: 10).isActive = true
+        lastNameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        lastNameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        
+        contentView.addSubview(phoneNumberInputField)
+        phoneNumberInputField.translatesAutoresizingMaskIntoConstraints = false
+        phoneNumberInputField.topAnchor.constraint(equalTo: lastNameInputField.bottomAnchor, constant: 10).isActive = true
+        phoneNumberInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        phoneNumberInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        
+        contentView.addSubview(emailAddressInputField)
+        emailAddressInputField.translatesAutoresizingMaskIntoConstraints = false
+        emailAddressInputField.topAnchor.constraint(equalTo: phoneNumberInputField.bottomAnchor, constant: 10).isActive = true
+        emailAddressInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        emailAddressInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        
+        contentView.addSubview(passwordInputField)
+        passwordInputField.translatesAutoresizingMaskIntoConstraints = false
+        passwordInputField.topAnchor.constraint(equalTo: emailAddressInputField.bottomAnchor, constant: 10).isActive = true
+        passwordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        passwordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        
+        contentView.addSubview(confirmPasswordInputField)
+        confirmPasswordInputField.translatesAutoresizingMaskIntoConstraints = false
+        confirmPasswordInputField.topAnchor.constraint(equalTo: passwordInputField.bottomAnchor, constant: 10).isActive = true
+        confirmPasswordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        confirmPasswordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        
+        contentView.addSubview(createAccountButton)
+        createAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        createAccountButton.topAnchor.constraint(equalTo: confirmPasswordInputField.bottomAnchor, constant: 10).isActive = true
+        createAccountButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
+        createAccountButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        createAccountButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        appendKeyboardObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardObservers()
+    }
+    
+    @objc private func cancel() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func createAccount() {
+        let viewController = WelcomeViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+//MARK: UITextFieldDelegate
+extension SignUpRegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case firstNameInputField:
+            lastNameInputField.becomeFirstResponder()
+        case lastNameInputField:
+            phoneNumberInputField.becomeFirstResponder()
+        case phoneNumberInputField:
+            emailAddressInputField.becomeFirstResponder()
+        case emailAddressInputField:
+            passwordInputField.becomeFirstResponder()
+        case passwordInputField:
+            confirmPasswordInputField.becomeFirstResponder()
+        case confirmPasswordInputField:
+            textField.resignFirstResponder()
+        default: textField.resignFirstResponder()
+        }
+        return true
+    }
+}
+
+//MARK: KeyBoard
+extension SignUpRegisterViewController {
+    private func appendKeyboardObservers () {
+         NotificationCenter.default.addObserver(self,
+             selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+         NotificationCenter.default.addObserver(self,
+             selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+     }
+
+     private func removeKeyboardObservers () {
+         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+     }
+    
+    func animateWithKeyboard(notification: NSNotification, animations: ((_ keyboardFrame: CGRect) -> Void)?) {
+         let frameKey = UIResponder.keyboardFrameEndUserInfoKey
+         let keyboardFrameValue = notification.userInfo![frameKey] as! NSValue
+         
+         let durationKey = UIResponder.keyboardAnimationDurationUserInfoKey
+         let duration = notification.userInfo![durationKey] as! Double
+         
+         let curveKey = UIResponder.keyboardAnimationCurveUserInfoKey
+         let curveValue = notification.userInfo![curveKey] as! Int
+         let curve = UIView.AnimationCurve(rawValue: curveValue)!
+
+         let animator = UIViewPropertyAnimator(duration: duration, curve: curve) {
+             animations?(keyboardFrameValue.cgRectValue)
+             self.view?.layoutIfNeeded()
+         }
+         animator.startAnimation()
+     }
+    
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            guard let activeView = self.view.firstResponder else { return }
+            
+            let userInfo = notification.userInfo!
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+            
+            let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+            self.scrollView.contentInset = contentInset
+            self.scrollView.scrollIndicatorInsets = contentInset
+            
+            let relativeFrame = activeView.convert(activeView.bounds, to: self.scrollView)
+            let spaceAboveKeyboard = self.scrollView.frame.height - keyboardFrame.height
+            
+            let offset = relativeFrame.origin.y - (spaceAboveKeyboard - activeView.frame.height - 80);
+            self.scrollView.contentOffset = CGPoint(x: 0, y: max(0, offset))
+        }
+    }
+
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            self.scrollView.contentInset = UIEdgeInsets.zero
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+        }
     }
 }

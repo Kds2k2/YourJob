@@ -69,6 +69,9 @@ struct AppString {
             static let password = "Password"
             static let confirmPassword = "Confirm Password"
             static let confrimationCode = "Confrimation Code"
+            static let phone = "Phone (optimal)"
+            static let firstName = "First Name"
+            static let lastName = "Last Name"
         }
     }
     
