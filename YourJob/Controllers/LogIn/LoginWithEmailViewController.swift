@@ -164,47 +164,47 @@ class LoginWithEmailViewController: UIViewController {
         
         contentView.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         logoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -220).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: AppLayout.Logo.height).isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40).isActive = true
         
         contentView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
 
         contentView.addSubview(usernameInputField)
         usernameInputField.translatesAutoresizingMaskIntoConstraints = false
         usernameInputField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 60).isActive = true
-        usernameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        usernameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        usernameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        usernameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
 
         contentView.addSubview(passwordInputField)
         passwordInputField.translatesAutoresizingMaskIntoConstraints = false
         passwordInputField.topAnchor.constraint(equalTo: usernameInputField.bottomAnchor, constant: 10).isActive = true
-        passwordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        passwordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        passwordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        passwordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(loginWithEmailButton)
         loginWithEmailButton.translatesAutoresizingMaskIntoConstraints = false
         loginWithEmailButton.topAnchor.constraint(equalTo: passwordInputField.bottomAnchor, constant: 10).isActive = true
-        loginWithEmailButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        loginWithEmailButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        loginWithEmailButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        loginWithEmailButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         loginWithEmailButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
         
         contentView.addSubview(forgotPasswordButton)
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         forgotPasswordButton.topAnchor.constraint(equalTo: loginWithEmailButton.bottomAnchor, constant: 10).isActive = true
-        forgotPasswordButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        forgotPasswordButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        forgotPasswordButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        forgotPasswordButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         forgotPasswordButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
     }
     
@@ -223,7 +223,8 @@ class LoginWithEmailViewController: UIViewController {
     }
     
     private func login() {
-        print("login")
+        let viewController = VacancyDetailsViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func resetPassword() {

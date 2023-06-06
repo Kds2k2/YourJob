@@ -16,6 +16,11 @@ struct AppString {
             static let signUpPrompt = "Don't have an account yet?"
         }
         
+        struct VacancyDetails {
+            static let title = "Vacancy Details"
+            static let description = "Before sending your resume, carefully read the job posting for any instructions from the employer about how to apply."
+        }
+        
         struct LoginWithEmail {
             static let title = "Welcome"
             static let description = "Please enter your email address and password to login."
@@ -63,6 +68,7 @@ struct AppString {
         static let close = "Close"
         static let createAccount = "Create Account"
         static let submit = "Submit"
+        static let respond = "Respond"
     }
     
     struct Input {

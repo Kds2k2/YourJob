@@ -228,60 +228,60 @@ class ResetPasswordViewController: UIViewController {
         
         contentView.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         logoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -220).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: AppLayout.Logo.height).isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40).isActive = true
         
         contentView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         
         contentView.addSubview(passwordInputField)
         passwordInputField.translatesAutoresizingMaskIntoConstraints = false
         passwordInputField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 60).isActive = true
-        passwordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        passwordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        passwordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        passwordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(confirmPasswordInputField)
         confirmPasswordInputField.translatesAutoresizingMaskIntoConstraints = false
         confirmPasswordInputField.topAnchor.constraint(equalTo: passwordInputField.bottomAnchor, constant: 10).isActive = true
-        confirmPasswordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        confirmPasswordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        confirmPasswordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        confirmPasswordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(confirmationCodeInputField)
         confirmationCodeInputField.translatesAutoresizingMaskIntoConstraints = false
         confirmationCodeInputField.topAnchor.constraint(equalTo: confirmPasswordInputField.bottomAnchor, constant: 10).isActive = true
-        confirmationCodeInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        confirmationCodeInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        confirmationCodeInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        confirmationCodeInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(resetPasswordButton)
         resetPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         resetPasswordButton.topAnchor.constraint(equalTo: confirmationCodeInputField.bottomAnchor, constant: 10).isActive = true
-        resetPasswordButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        resetPasswordButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        resetPasswordButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        resetPasswordButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         resetPasswordButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
         
         contentView.addSubview(resendCodeButton)
         resendCodeButton.translatesAutoresizingMaskIntoConstraints = false
-        resendCodeButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        resendCodeButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        resendCodeButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        resendCodeButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         resendCodeButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
         resendCodeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
         
         contentView.addSubview(resendCodeLabel)
         resendCodeLabel.translatesAutoresizingMaskIntoConstraints = false
         resendCodeLabel.bottomAnchor.constraint(equalTo: resendCodeButton.topAnchor, constant: 0).isActive = true
-        resendCodeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        resendCodeLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        resendCodeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        resendCodeLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

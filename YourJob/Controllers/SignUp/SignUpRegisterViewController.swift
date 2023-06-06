@@ -266,64 +266,64 @@ class SignUpRegisterViewController: UIViewController {
         
         contentView.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        logoImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 70).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: AppLayout.Logo.height).isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40).isActive = true
         
         contentView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         
         contentView.addSubview(firstNameInputField)
         firstNameInputField.translatesAutoresizingMaskIntoConstraints = false
         firstNameInputField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 60).isActive = true
-        firstNameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        firstNameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        firstNameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        firstNameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(lastNameInputField)
         lastNameInputField.translatesAutoresizingMaskIntoConstraints = false
         lastNameInputField.topAnchor.constraint(equalTo: firstNameInputField.bottomAnchor, constant: 10).isActive = true
-        lastNameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        lastNameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        lastNameInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        lastNameInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(phoneNumberInputField)
         phoneNumberInputField.translatesAutoresizingMaskIntoConstraints = false
         phoneNumberInputField.topAnchor.constraint(equalTo: lastNameInputField.bottomAnchor, constant: 10).isActive = true
-        phoneNumberInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        phoneNumberInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        phoneNumberInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        phoneNumberInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(emailAddressInputField)
         emailAddressInputField.translatesAutoresizingMaskIntoConstraints = false
         emailAddressInputField.topAnchor.constraint(equalTo: phoneNumberInputField.bottomAnchor, constant: 10).isActive = true
-        emailAddressInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        emailAddressInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        emailAddressInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        emailAddressInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(passwordInputField)
         passwordInputField.translatesAutoresizingMaskIntoConstraints = false
         passwordInputField.topAnchor.constraint(equalTo: emailAddressInputField.bottomAnchor, constant: 10).isActive = true
-        passwordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        passwordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        passwordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        passwordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(confirmPasswordInputField)
         confirmPasswordInputField.translatesAutoresizingMaskIntoConstraints = false
         confirmPasswordInputField.topAnchor.constraint(equalTo: passwordInputField.bottomAnchor, constant: 10).isActive = true
-        confirmPasswordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        confirmPasswordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        confirmPasswordInputField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        confirmPasswordInputField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
         contentView.addSubview(createAccountButton)
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
         createAccountButton.topAnchor.constraint(equalTo: confirmPasswordInputField.bottomAnchor, constant: 10).isActive = true
-        createAccountButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.left).isActive = true
-        createAccountButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: AppLayout.View.right).isActive = true
+        createAccountButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
+        createAccountButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         createAccountButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
     }
     

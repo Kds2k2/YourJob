@@ -10,13 +10,16 @@ import Foundation
 
 struct AppLayout {
     struct View {
-        static let left: CGFloat = AppInfo.isIpad ? 150 : 30
-        static let right: CGFloat = AppInfo.isIpad ? -150 : -30
+        static let inset: CGFloat = AppInfo.isIpad ? 150 : 30
     }
     
     struct Button {
         static let cornerRadius: CGFloat = 5
         static let height: CGFloat = 40
+    }
+    
+    struct Table {
+        static let inset: CGFloat = AppInfo.isIpad ? 30 : 15
     }
     
     struct Logo {
