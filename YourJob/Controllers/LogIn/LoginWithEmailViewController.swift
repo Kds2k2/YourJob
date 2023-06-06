@@ -94,7 +94,7 @@ class LoginWithEmailViewController: UIViewController {
         view.backgroundColor = AppColor.Input.background
         view.borderStyle = .roundedRect
         view.clearButtonMode = .always
-        view.textContentType = .password
+        view.textContentType = .oneTimeCode
         view.autocapitalizationType = .none
         view.autocorrectionType = .no
         view.returnKeyType = .default

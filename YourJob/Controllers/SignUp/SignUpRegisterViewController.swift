@@ -127,6 +127,37 @@ class SignUpRegisterViewController: UIViewController {
         view.layer.borderWidth = AppLayout.Input.borderWidth
         view.keyboardType = .phonePad
         view.delegate = self
+        view.inputAccessoryView = accessoryView
+        return view
+    }()
+    
+    var accessoryView: UIView = {
+        var view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+        view.backgroundColor = .clear
+        
+        let backgroundView = BackgroundView()
+        backgroundView.effectView.effect = UIBlurEffect(style: .regular)
+        view.addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        backgroundView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        backgroundView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+        var toolBar = UIToolbar()
+        toolBar.backgroundColor = .clear
+        view.addSubview(toolBar)
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        toolBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        toolBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        toolBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        toolBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+        var buttonItems = [UIBarButtonItem]()
+        buttonItems.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        buttonItems.append(UIBarButtonItem(image: AppImage.Return.right, style: .plain, target: self, action: #selector(completeNumberInput)))
+        toolBar.items = buttonItems
+        
         return view
     }()
     
@@ -155,7 +186,7 @@ class SignUpRegisterViewController: UIViewController {
         let view = SecureTextField()
         view.backgroundColor = AppColor.Input.background
         view.borderStyle = .roundedRect
-        view.textContentType = .password
+        view.textContentType = .oneTimeCode
         view.autocapitalizationType = .none
         view.autocorrectionType = .no
         view.returnKeyType = .next
@@ -177,7 +208,7 @@ class SignUpRegisterViewController: UIViewController {
         view.backgroundColor = AppColor.Input.background
         view.borderStyle = .roundedRect
         view.clearButtonMode = .always
-        view.textContentType = .password
+        view.textContentType = .oneTimeCode
         view.autocapitalizationType = .none
         view.autocorrectionType = .no
         view.returnKeyType = .default
@@ -200,7 +231,7 @@ class SignUpRegisterViewController: UIViewController {
         configuration.baseForegroundColor = AppColor.Button.Filled.foreground
         configuration.background.cornerRadius = AppLayout.Button.cornerRadius
         let view = UIButton(configuration: configuration)
-        view.setAttributedTitle(NSAttributedString(string: AppString.Button.login.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: AppString.Button.createAccount.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.createAccount() } ), for: .touchUpInside)
         return view
     }()
@@ -311,8 +342,14 @@ class SignUpRegisterViewController: UIViewController {
     }
     
     private func createAccount() {
-        let viewController = WelcomeViewController()
+        let viewController = SignUpCompleteViewController()
         navigationController?.pushViewController(viewController, animated: true)
+    }
+                           
+    @objc private func completeNumberInput() {
+        if let textFiled = view.firstResponder as? UITextField {
+            _ = textFieldShouldReturn(textFiled)
+        }
     }
 }
 
@@ -396,3 +433,4 @@ extension SignUpRegisterViewController {
         }
     }
 }
+

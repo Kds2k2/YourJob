@@ -71,4 +71,13 @@ struct AppImage {
          static let right = UIImage(systemName: "chevron.right",
                                     withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
      }
+    
+    struct Return {
+        private static let configuration = UIImage.SymbolConfiguration(weight: .regular)
+
+        static let left = UIImage(systemName: "return.left",
+                                    withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
+        static let right = UIImage(systemName: "return.right",
+                                    withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
+    }
 }

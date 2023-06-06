@@ -75,7 +75,7 @@ class ResetPasswordViewController: UIViewController {
         view.backgroundColor = AppColor.Input.background
         view.borderStyle = .roundedRect
         view.clearButtonMode = .always
-        view.textContentType = .password
+        view.textContentType = .oneTimeCode
         view.autocapitalizationType = .none
         view.autocorrectionType = .no
         view.returnKeyType = .next
@@ -97,7 +97,7 @@ class ResetPasswordViewController: UIViewController {
         view.backgroundColor = AppColor.Input.background
         view.borderStyle = .roundedRect
         view.clearButtonMode = .always
-        view.textContentType = .password
+        view.textContentType = .oneTimeCode
         view.autocapitalizationType = .none
         view.autocorrectionType = .no
         view.returnKeyType = .next
@@ -130,7 +130,39 @@ class ResetPasswordViewController: UIViewController {
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
         view.layer.borderWidth = AppLayout.Input.borderWidth
+        view.keyboardType = .numberPad
+        view.inputAccessoryView = accessoryView
         view.delegate = self
+        return view
+    }()
+    
+    var accessoryView: UIView = {
+        var view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+        view.backgroundColor = .clear
+        
+        let backgroundView = BackgroundView()
+        backgroundView.effectView.effect = UIBlurEffect(style: .regular)
+        view.addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        backgroundView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        backgroundView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+        var toolBar = UIToolbar()
+        toolBar.backgroundColor = .clear
+        view.addSubview(toolBar)
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        toolBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        toolBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        toolBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        toolBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+        var buttonItems = [UIBarButtonItem]()
+        buttonItems.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        buttonItems.append(UIBarButtonItem(image: AppImage.Return.right, style: .plain, target: self, action: #selector(completeCodeInput)))
+        toolBar.items = buttonItems
+        
         return view
     }()
 
@@ -267,15 +299,19 @@ class ResetPasswordViewController: UIViewController {
     }
     
     private func resetPassword() {
-//        let viewController = ResetPasswordViewController()
-//        navigationController?.pushViewController(viewController, animated: true)
-        print("Reset")
+        navigationController?.popViewController(animated: true)
     }
     
     private func resendCode() {
 //        let viewController = ResetPasswordViewController()
 //        navigationController?.pushViewController(viewController, animated: true)
         print("Code Resend")
+    }
+    
+    @objc private func completeCodeInput() {
+        if let textFiled = view.firstResponder as? UITextField {
+            _ = textFieldShouldReturn(textFiled)
+        }
     }
 }
 

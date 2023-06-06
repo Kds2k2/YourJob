@@ -61,6 +61,8 @@ struct AppString {
         static let resetPassword = "Reset Password"
         static let resendAgain = "Resend Again"
         static let close = "Close"
+        static let createAccount = "Create Account"
+        static let submit = "Submit"
     }
     
     struct Input {
