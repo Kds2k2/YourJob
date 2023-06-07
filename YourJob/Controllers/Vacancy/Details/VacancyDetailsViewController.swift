@@ -88,14 +88,14 @@ class VacancyDetailsViewController: UIViewController {
         view.sectionHeaderHeight = UITableView.automaticDimension
         view.allowsSelection = true
         view.allowsMultipleSelection = false
-        view.separatorStyle = .singleLine
-        view.separatorColor = .separator
-        view.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        view.separatorStyle = .none
+        view.separatorColor = .clear
         view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         view.clipsToBounds = true
         view.isEditing = false
         view.register(VacancyDetailsContentViewCell.self, forCellReuseIdentifier: VacancyDetailsContentViewCell.defaultReuseIdentifier)
         view.register(VacancySectionHeaderViewCell.self, forCellReuseIdentifier: VacancySectionHeaderViewCell.defaultReuseIdentifier)
+        view.register(VacancyEmployerViewCell.self, forCellReuseIdentifier: VacancyEmployerViewCell.defaultReuseIdentifier)
         view.dataSource = self
         view.delegate = self
         return view
@@ -144,7 +144,7 @@ class VacancyDetailsViewController: UIViewController {
         
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         
@@ -183,23 +183,32 @@ class VacancyDetailsViewController: UIViewController {
 //MARK: UITableViewDataSource
 extension VacancyDetailsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return model.components.count
+        return model.components.count + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        if section == 0 {
+            return 1
+        } else {
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: VacancySectionHeaderViewCell.defaultReuseIdentifier) as! VacancySectionHeaderViewCell
-            cell.model = model.components[indexPath.section].header
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: VacancyEmployerViewCell.defaultReuseIdentifier) as! VacancyEmployerViewCell
+            cell.model = model.employer
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: VacancyDetailsContentViewCell.defaultReuseIdentifier) as! VacancyDetailsContentViewCell
-            cell.model = model.components[indexPath.section].content
-            return cell
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: VacancySectionHeaderViewCell.defaultReuseIdentifier) as! VacancySectionHeaderViewCell
+                cell.model = model.components[indexPath.section-1].header
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: VacancyDetailsContentViewCell.defaultReuseIdentifier) as! VacancyDetailsContentViewCell
+                cell.model = model.components[indexPath.section-1].content
+                return cell
+            }
         }
     }
 }

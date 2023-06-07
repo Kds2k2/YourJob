@@ -19,6 +19,8 @@ struct AppString {
         struct VacancyDetails {
             static let title = "Vacancy Details"
             static let description = "Before sending your resume, carefully read the job posting for any instructions from the employer about how to apply."
+            static let email = "Email"
+            static let phone = "Phone"
         }
         
         struct LoginWithEmail {
@@ -46,6 +48,22 @@ struct AppString {
             static let title = "Complete"
             static let description = "Lorem ipsum dolor sit amet. Est quisquam impedit ut nulla minus et ipsum adipisci in dolorum commodi. Non velit cupiditate est consequatur officia et asperiores atque 33 voluptate voluptatem sit voluptas ducimus eos laborum laudantium. Ut voluptates velit aut ipsa autem ut unde repellat. Ad totam quae est galisum enim id omnis consequatur."
         }
+        
+        struct VacancyFilter {
+            static let title = "Search Filter"
+            static let description = "Please enter criteria by which you want to search, and any other options as desired."
+            static let jobTitle = "Job Title"
+            static let location = "Location"
+            static let isRemote = "Is Remote"
+            static let salary = "Salary"
+            static let categories = "Categories"
+        }
+    }
+    
+    struct State {
+        static let yes = "Yes"
+        static let no = "No"
+        static let notSet = "Not Set"
     }
     
     struct Alert {
@@ -69,6 +87,7 @@ struct AppString {
         static let createAccount = "Create Account"
         static let submit = "Submit"
         static let respond = "Respond"
+        static let accept = "Accept"
     }
     
     struct Input {
@@ -80,6 +99,7 @@ struct AppString {
             static let phone = "Phone (optimal)"
             static let firstName = "First Name"
             static let lastName = "Last Name"
+            static let common = "<tab to enter>"
         }
     }
     

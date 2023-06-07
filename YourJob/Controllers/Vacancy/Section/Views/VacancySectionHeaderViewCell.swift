@@ -32,16 +32,32 @@ class VacancySectionHeaderViewCell: UITableViewCell {
         return view
     }()
     
+    lazy var separatorView: UIView = {
+        let view = DashedLineView()
+        view.style = .horizontal
+        view.lineColor = .secondaryLabel.withAlphaComponent(0.6)
+        view.dashPattern = [1, 3]
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     private func setup() {
         selectionStyle = .none
         accessoryType = .none
         
         contentView.addSubview(headerLabel)
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
-        headerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
+        headerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
         headerLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0).isActive = true
         headerLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
+        
+        contentView.addSubview(separatorView)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+        separatorView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0).isActive = true
+        separatorView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
+        separatorView.heightAnchor.constraint(equalToConstant: 5).isActive = true
     }
     
     private func configure() {

@@ -52,6 +52,22 @@
 		26C165352A2E0F5600568A78 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165342A2E0F5600568A78 /* ResetPasswordViewController.swift */; };
 		26C165372A2E0F6B00568A78 /* SignUpRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165362A2E0F6B00568A78 /* SignUpRegisterViewController.swift */; };
 		26C165392A2E0F7A00568A78 /* SignUpCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C165382A2E0F7A00568A78 /* SignUpCompleteViewController.swift */; };
+		26C2CA602A307B8C00BE4C73 /* DashedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA5F2A307B8C00BE4C73 /* DashedLineView.swift */; };
+		26C2CA632A309ABE00BE4C73 /* VacancyEmployerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA622A309ABE00BE4C73 /* VacancyEmployerViewModel.swift */; };
+		26C2CA652A309AD400BE4C73 /* VacancyEmployerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA642A309AD400BE4C73 /* VacancyEmployerViewCell.swift */; };
+		26C2CA672A30B26200BE4C73 /* WebImageVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA662A30B26200BE4C73 /* WebImageVIew.swift */; };
+		26C2CA6A2A30C24F00BE4C73 /* UIImage+Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA692A30C24F00BE4C73 /* UIImage+Thumbnail.swift */; };
+		26C2CA6C2A30C44000BE4C73 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA6B2A30C44000BE4C73 /* AppManager.swift */; };
+		26C2CA6E2A30D3AD00BE4C73 /* VacancyFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA6D2A30D3AD00BE4C73 /* VacancyFilterViewModel.swift */; };
+		26C2CA792A30E03500BE4C73 /* VacancyFilterStringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA782A30E03500BE4C73 /* VacancyFilterStringViewModel.swift */; };
+		26C2CA7B2A30E05600BE4C73 /* VacancyFilterBoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA7A2A30E05600BE4C73 /* VacancyFilterBoolViewModel.swift */; };
+		26C2CA7D2A30E06900BE4C73 /* VacancyFilterEnumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA7C2A30E06900BE4C73 /* VacancyFilterEnumViewModel.swift */; };
+		26C2CA7F2A30E07F00BE4C73 /* VacancyFilterNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA7E2A30E07F00BE4C73 /* VacancyFilterNumberViewModel.swift */; };
+		26C2CA812A30E22900BE4C73 /* VacancyFilterStringViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA802A30E22900BE4C73 /* VacancyFilterStringViewCell.swift */; };
+		26C2CA862A30EFBE00BE4C73 /* VacancyFilterBoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA852A30EFBE00BE4C73 /* VacancyFilterBoolViewCell.swift */; };
+		26C2CA882A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA872A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift */; };
+		26C2CA8A2A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA892A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift */; };
+		26C2CA8C2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA8B2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift */; };
 		A55E4D362A2D3D1A008CCC2F /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E4D352A2D3D1A008CCC2F /* AppImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +121,22 @@
 		26C165342A2E0F5600568A78 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		26C165362A2E0F6B00568A78 /* SignUpRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRegisterViewController.swift; sourceTree = "<group>"; };
 		26C165382A2E0F7A00568A78 /* SignUpCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompleteViewController.swift; sourceTree = "<group>"; };
+		26C2CA5F2A307B8C00BE4C73 /* DashedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineView.swift; sourceTree = "<group>"; };
+		26C2CA622A309ABE00BE4C73 /* VacancyEmployerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyEmployerViewModel.swift; sourceTree = "<group>"; };
+		26C2CA642A309AD400BE4C73 /* VacancyEmployerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyEmployerViewCell.swift; sourceTree = "<group>"; };
+		26C2CA662A30B26200BE4C73 /* WebImageVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageVIew.swift; sourceTree = "<group>"; };
+		26C2CA692A30C24F00BE4C73 /* UIImage+Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Thumbnail.swift"; sourceTree = "<group>"; };
+		26C2CA6B2A30C44000BE4C73 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		26C2CA6D2A30D3AD00BE4C73 /* VacancyFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterViewModel.swift; sourceTree = "<group>"; };
+		26C2CA782A30E03500BE4C73 /* VacancyFilterStringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterStringViewModel.swift; sourceTree = "<group>"; };
+		26C2CA7A2A30E05600BE4C73 /* VacancyFilterBoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterBoolViewModel.swift; sourceTree = "<group>"; };
+		26C2CA7C2A30E06900BE4C73 /* VacancyFilterEnumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterEnumViewModel.swift; sourceTree = "<group>"; };
+		26C2CA7E2A30E07F00BE4C73 /* VacancyFilterNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterNumberViewModel.swift; sourceTree = "<group>"; };
+		26C2CA802A30E22900BE4C73 /* VacancyFilterStringViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterStringViewCell.swift; sourceTree = "<group>"; };
+		26C2CA852A30EFBE00BE4C73 /* VacancyFilterBoolViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterBoolViewCell.swift; sourceTree = "<group>"; };
+		26C2CA872A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterNumberViewCell.swift; sourceTree = "<group>"; };
+		26C2CA892A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFIlterOptionViewModel.swift; sourceTree = "<group>"; };
+		26C2CA8B2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterOptionViewCell.swift; sourceTree = "<group>"; };
 		A55E4D352A2D3D1A008CCC2F /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +183,7 @@
 				2615BA642A2D08AF00649D61 /* AppLog.swift */,
 				26813B162A2DF04500746C74 /* AppLayout.swift */,
 				2615BA332A2CC9B700649D61 /* Info.plist */,
+				26C2CA6B2A30C44000BE4C73 /* AppManager.swift */,
 			);
 			path = YourJob;
 			sourceTree = "<group>";
@@ -190,11 +223,10 @@
 		2615BA3C2A2CF05F00649D61 /* Vacancy */ = {
 			isa = PBXGroup;
 			children = (
-				268B721F2A2FB141000A177F /* Models */,
-				268B721E2A2FB139000A177F /* Views */,
-				268B72152A2FA1D1000A177F /* VacancyOffersViewController.swift */,
-				268B72172A2FA1ED000A177F /* VacancyDetailsViewController.swift */,
-				268B72192A2FA204000A177F /* VacancyFilterViewController.swift */,
+				26C2CA842A30ECEE00BE4C73 /* Section */,
+				26C2CA712A30DEC500BE4C73 /* Offers */,
+				26C2CA702A30DEBE00BE4C73 /* Filters */,
+				26C2CA6F2A30DEB400BE4C73 /* Details */,
 			);
 			path = Vacancy;
 			sourceTree = "<group>";
@@ -234,6 +266,7 @@
 				268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */,
 				268BF9892A2E5EC600DD6EC2 /* UIView+FirstResponder.swift */,
 				268B72262A2FB862000A177F /* UIVIew+ReuseIdentifair.swift */,
+				26C2CA692A30C24F00BE4C73 /* UIImage+Thumbnail.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +274,8 @@
 		2615BA412A2CF0F600649D61 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				26C2CA682A30B26E00BE4C73 /* WebImageVIew */,
+				26C2CA612A307B9900BE4C73 /* DashedLineView */,
 				268B721B2A2FA5AD000A177F /* UITableView */,
 				268BF98E2A2E623800DD6EC2 /* SecureTextField */,
 				268BF98D2A2E622C00DD6EC2 /* BackgroundView */,
@@ -281,26 +316,6 @@
 			path = UITableView;
 			sourceTree = "<group>";
 		};
-		268B721E2A2FB139000A177F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				268B722A2A2FC09D000A177F /* VacancySectionHeaderViewCell.swift */,
-				268B72242A2FB240000A177F /* VacancyDetailsContentViewCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		268B721F2A2FB141000A177F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				268B72202A2FB1A7000A177F /* VacancyDetailsViewModel.swift */,
-				268B72222A2FB200000A177F /* VacancyDetailsContentViewModel.swift */,
-				268B72282A2FC060000A177F /* VacancySectionHeaderViewModel.swift */,
-				268B722C2A2FC2FB000A177F /* VacancyDetailComponentViewModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		268BF98D2A2E622C00DD6EC2 /* BackgroundView */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +330,135 @@
 				268BF98B2A2E61FF00DD6EC2 /* SecureTextField.swift */,
 			);
 			path = SecureTextField;
+			sourceTree = "<group>";
+		};
+		26C2CA612A307B9900BE4C73 /* DashedLineView */ = {
+			isa = PBXGroup;
+			children = (
+				26C2CA5F2A307B8C00BE4C73 /* DashedLineView.swift */,
+			);
+			path = DashedLineView;
+			sourceTree = "<group>";
+		};
+		26C2CA682A30B26E00BE4C73 /* WebImageVIew */ = {
+			isa = PBXGroup;
+			children = (
+				26C2CA662A30B26200BE4C73 /* WebImageVIew.swift */,
+			);
+			path = WebImageVIew;
+			sourceTree = "<group>";
+		};
+		26C2CA6F2A30DEB400BE4C73 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				26C2CA722A30DED800BE4C73 /* Views */,
+				26C2CA732A30DEE300BE4C73 /* Models */,
+				268B72172A2FA1ED000A177F /* VacancyDetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		26C2CA702A30DEBE00BE4C73 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				26C2CA752A30DF3400BE4C73 /* Models */,
+				26C2CA742A30DF2D00BE4C73 /* Views */,
+				268B72192A2FA204000A177F /* VacancyFilterViewController.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		26C2CA712A30DEC500BE4C73 /* Offers */ = {
+			isa = PBXGroup;
+			children = (
+				26C2CA772A30DF5D00BE4C73 /* Models */,
+				26C2CA762A30DF5600BE4C73 /* Views */,
+				268B72152A2FA1D1000A177F /* VacancyOffersViewController.swift */,
+			);
+			path = Offers;
+			sourceTree = "<group>";
+		};
+		26C2CA722A30DED800BE4C73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				268B72242A2FB240000A177F /* VacancyDetailsContentViewCell.swift */,
+				26C2CA642A309AD400BE4C73 /* VacancyEmployerViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		26C2CA732A30DEE300BE4C73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				268B72202A2FB1A7000A177F /* VacancyDetailsViewModel.swift */,
+				268B72222A2FB200000A177F /* VacancyDetailsContentViewModel.swift */,
+				268B722C2A2FC2FB000A177F /* VacancyDetailComponentViewModel.swift */,
+				26C2CA622A309ABE00BE4C73 /* VacancyEmployerViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26C2CA742A30DF2D00BE4C73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				26C2CA802A30E22900BE4C73 /* VacancyFilterStringViewCell.swift */,
+				26C2CA852A30EFBE00BE4C73 /* VacancyFilterBoolViewCell.swift */,
+				26C2CA872A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift */,
+				26C2CA8B2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		26C2CA752A30DF3400BE4C73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				26C2CA6D2A30D3AD00BE4C73 /* VacancyFilterViewModel.swift */,
+				26C2CA782A30E03500BE4C73 /* VacancyFilterStringViewModel.swift */,
+				26C2CA7A2A30E05600BE4C73 /* VacancyFilterBoolViewModel.swift */,
+				26C2CA7C2A30E06900BE4C73 /* VacancyFilterEnumViewModel.swift */,
+				26C2CA7E2A30E07F00BE4C73 /* VacancyFilterNumberViewModel.swift */,
+				26C2CA892A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26C2CA762A30DF5600BE4C73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		26C2CA772A30DF5D00BE4C73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26C2CA822A30ECBD00BE4C73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				268B722A2A2FC09D000A177F /* VacancySectionHeaderViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		26C2CA832A30ECC700BE4C73 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				268B72282A2FC060000A177F /* VacancySectionHeaderViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26C2CA842A30ECEE00BE4C73 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				26C2CA822A30ECBD00BE4C73 /* Views */,
+				26C2CA832A30ECC700BE4C73 /* Models */,
+			);
+			path = Section;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,13 +544,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C2CA792A30E03500BE4C73 /* VacancyFilterStringViewModel.swift in Sources */,
 				268BF9882A2E311F00DD6EC2 /* UIImage+Attachment.swift in Sources */,
 				2615BA5D2A2CFA4D00649D61 /* AppFont.swift in Sources */,
+				26C2CA672A30B26200BE4C73 /* WebImageVIew.swift in Sources */,
+				26C2CA882A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift in Sources */,
 				2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */,
 				26813B172A2DF04500746C74 /* AppLayout.swift in Sources */,
 				26C165352A2E0F5600568A78 /* ResetPasswordViewController.swift in Sources */,
+				26C2CA6C2A30C44000BE4C73 /* AppManager.swift in Sources */,
 				268BF98A2A2E5EC600DD6EC2 /* UIView+FirstResponder.swift in Sources */,
 				2615BA5F2A2CFE4F00649D61 /* AppString.swift in Sources */,
+				26C2CA7B2A30E05600BE4C73 /* VacancyFilterBoolViewModel.swift in Sources */,
 				268B722B2A2FC09D000A177F /* VacancySectionHeaderViewCell.swift in Sources */,
 				26C165372A2E0F6B00568A78 /* SignUpRegisterViewController.swift in Sources */,
 				2615BA652A2D08AF00649D61 /* AppLog.swift in Sources */,
@@ -414,19 +563,30 @@
 				2615BA5B2A2CF62600649D61 /* UIFont+Montserrat.swift in Sources */,
 				A55E4D362A2D3D1A008CCC2F /* AppImage.swift in Sources */,
 				268B72272A2FB862000A177F /* UIVIew+ReuseIdentifair.swift in Sources */,
+				26C2CA812A30E22900BE4C73 /* VacancyFilterStringViewCell.swift in Sources */,
 				268B72292A2FC060000A177F /* VacancySectionHeaderViewModel.swift in Sources */,
 				268B72182A2FA1ED000A177F /* VacancyDetailsViewController.swift in Sources */,
 				268B72162A2FA1D1000A177F /* VacancyOffersViewController.swift in Sources */,
+				26C2CA652A309AD400BE4C73 /* VacancyEmployerViewCell.swift in Sources */,
 				2615BA672A2D09C900649D61 /* Date+ISO8601.swift in Sources */,
 				268B721A2A2FA204000A177F /* VacancyFilterViewController.swift in Sources */,
+				26C2CA8C2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift in Sources */,
+				26C2CA8A2A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift in Sources */,
+				26C2CA6E2A30D3AD00BE4C73 /* VacancyFilterViewModel.swift in Sources */,
+				26C2CA862A30EFBE00BE4C73 /* VacancyFilterBoolViewCell.swift in Sources */,
 				2615BA452A2CF1B600649D61 /* TestViewController.swift in Sources */,
 				268B72252A2FB240000A177F /* VacancyDetailsContentViewCell.swift in Sources */,
 				268B722D2A2FC2FB000A177F /* VacancyDetailComponentViewModel.swift in Sources */,
+				26C2CA632A309ABE00BE4C73 /* VacancyEmployerViewModel.swift in Sources */,
 				2615BA262A2CC9B500649D61 /* AppDelegate.swift in Sources */,
 				268BF98C2A2E61FF00DD6EC2 /* SecureTextField.swift in Sources */,
 				268B72232A2FB200000A177F /* VacancyDetailsContentViewModel.swift in Sources */,
+				26C2CA602A307B8C00BE4C73 /* DashedLineView.swift in Sources */,
+				26C2CA7F2A30E07F00BE4C73 /* VacancyFilterNumberViewModel.swift in Sources */,
 				26C165312A2E002400568A78 /* BackgroundView.swift in Sources */,
+				26C2CA6A2A30C24F00BE4C73 /* UIImage+Thumbnail.swift in Sources */,
 				268B72212A2FB1A7000A177F /* VacancyDetailsViewModel.swift in Sources */,
+				26C2CA7D2A30E06900BE4C73 /* VacancyFilterEnumViewModel.swift in Sources */,
 				2615BA612A2CFEFD00649D61 /* AppColor.swift in Sources */,
 				26C165332A2E0F3E00568A78 /* LoginWithEmailViewController.swift in Sources */,
 				26C165392A2E0F7A00568A78 /* SignUpCompleteViewController.swift in Sources */,

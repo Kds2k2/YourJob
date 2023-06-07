@@ -10,9 +10,11 @@ import Foundation
 
 class VacancyDetailsViewModel {
     let components: [VacancyDetailComponentViewModel]
+    let employer: VacancyEmployerViewModel
     
-    init(with components: [VacancyDetailComponentViewModel]) {
+    init(with employer: VacancyEmployerViewModel, components: [VacancyDetailComponentViewModel]) {
         self.components = components
+        self.employer = employer
     }
     
     static func mock() -> VacancyDetailsViewModel {
@@ -24,7 +26,9 @@ class VacancyDetailsViewModel {
             VacancyDetailComponentViewModel(with: "Dolor aft", text: "05.06.23 17:24", isHighlight: true),
         ]
         
-        let model = VacancyDetailsViewModel(with: components)
+        let employer = VacancyEmployerViewModel.mock()
+        
+        let model = VacancyDetailsViewModel(with: employer, components: components)
         return model
     }
 }

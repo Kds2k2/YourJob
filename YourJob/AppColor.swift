@@ -19,6 +19,7 @@ struct AppColor {
     struct Cell {
         static let header = UIColor.secondaryLabel
         static let text = UIColor.label
+        static let selection = UIColor.systemBlue
     }
     
     struct Button {
@@ -34,7 +35,7 @@ struct AppColor {
     
     struct Input {
         static let text = UIColor.label
-        static let placeholder = UIColor.secondaryLabel
+        static let placeholder = UIColor.placeholderText
         static let border = UIColor.separator
         static let background = UIColor.white.withAlphaComponent(0.08)
     }

@@ -35,6 +35,7 @@ struct AppFont {
     struct Cell {
         static let header = UIFont.montserratFont(ofSize: 12 * scale, weight: .light)
         static let title = UIFont.montserratFont(ofSize: 14 * scale, weight: .regular)
+        static let subTitle = UIFont.montserratFont(ofSize: 12 * scale, weight: .light)
         static let text = UIFont.montserratFont(ofSize: 14 * scale, weight: .light)
     }
 }

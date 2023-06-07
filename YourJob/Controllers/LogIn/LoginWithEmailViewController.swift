@@ -223,7 +223,7 @@ class LoginWithEmailViewController: UIViewController {
     }
     
     private func login() {
-        let viewController = VacancyDetailsViewController()
+        let viewController = VacancyFilterViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     

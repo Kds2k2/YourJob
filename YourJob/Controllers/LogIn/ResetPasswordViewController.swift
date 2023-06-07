@@ -136,7 +136,7 @@ class ResetPasswordViewController: UIViewController {
         return view
     }()
     
-    var accessoryView: UIView = {
+    lazy var accessoryView: UIView = {
         var view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
         view.backgroundColor = .clear
         
