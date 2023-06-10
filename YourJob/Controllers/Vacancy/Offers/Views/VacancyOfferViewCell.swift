@@ -25,6 +25,14 @@ class VacancyOfferViewCell: UICollectionViewCell {
         }
     }
     
+    var effectView: BackgroundView = {
+        let view = BackgroundView()
+        view.imageView.image = nil
+        view.effectView.effect = nil
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     var stackView: UIStackView = {
         let view = UIStackView()
         view.backgroundColor = .clear
@@ -139,14 +147,21 @@ class VacancyOfferViewCell: UICollectionViewCell {
     }()
     
     private func setup() {
-//        backgroundColor = .clear
-//        contentView.backgroundColor = .white
-//        selectedBackgroundView = UIView()
-//        selectedBackgroundView!.backgroundColor = .clear
-//        layer.borderColor = UIColor.separator.cgColor
-//        layer.borderWidth = 0.5
-//        layer.cornerRadius = 5
-//        layer.masksToBounds = true
+        backgroundColor = .clear
+        contentView.backgroundColor = .secondarySystemBackground
+        selectedBackgroundView = UIView()
+        selectedBackgroundView!.backgroundColor = .clear
+        layer.borderColor = UIColor.separator.cgColor
+        layer.borderWidth = 0.5
+        layer.cornerRadius = 5
+        layer.masksToBounds = true
+        
+        contentView.addSubview(effectView)
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        effectView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        effectView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+        effectView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0).isActive = true
+        effectView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
         
         contentView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -193,12 +208,12 @@ class VacancyOfferViewCell: UICollectionViewCell {
         }
         
         employerLogoImageView.isHidden = (model?.employerLogoUrl == nil)
-        employerTitleLabel.isEnabled = (model?.attributedEmployerTitle == nil)
-        publishedDateLabel.isEnabled = (model?.attributedPublishedDate == nil)
-        vacancyCategoryLabel.isEnabled = (model?.attributedVacancyCategory == nil)
-        vacancyTitleLabel.isEnabled = (model?.attributedVacancyTitle == nil)
-        vacancyDescriptionLabel.isEnabled = (model?.attributedVacancyDescription == nil)
-        vacancySalaryLabel.isEnabled = (model?.attributedVacancySalary == nil)
+        employerTitleLabel.isHidden = (model?.attributedEmployerTitle == nil)
+        publishedDateLabel.isHidden = (model?.attributedPublishedDate == nil)
+        vacancyCategoryLabel.isHidden = (model?.attributedVacancyCategory == nil)
+        vacancyTitleLabel.isHidden = (model?.attributedVacancyTitle == nil)
+        vacancyDescriptionLabel.isHidden = (model?.attributedVacancyDescription == nil)
+        vacancySalaryLabel.isHidden = (model?.attributedVacancySalary == nil)
     }
     
     private func reset() {

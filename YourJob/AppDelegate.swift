@@ -17,7 +17,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     lazy var navigationController: UINavigationController = {
+        var backgroundView: BackgroundView = {
+            let view = BackgroundView()
+            view.imageView.image = nil
+            view.effectView.effect = UIBlurEffect(style: .systemMaterial)
+            view.backgroundColor = .red
+            return view
+        }()
+        
         let controller = UINavigationController(nibName: nil, bundle: nil)
+        controller.view.insertSubview(backgroundView, at: 0)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.topAnchor.constraint(equalTo: controller.view.topAnchor, constant: 0).isActive = true
+        backgroundView.leftAnchor.constraint(equalTo: controller.view.leftAnchor, constant: 0).isActive = true
+        backgroundView.rightAnchor.constraint(equalTo: controller.view.rightAnchor, constant: 0).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: controller.navigationBar.bottomAnchor, constant: 0).isActive = true
+        
+        let navigationBaAppearance = UINavigationBarAppearance()
+        navigationBaAppearance.configureWithTransparentBackground()
+        navigationBaAppearance.backgroundEffect = nil
+        
+        controller.navigationBar.standardAppearance = navigationBaAppearance
+        controller.navigationBar.compactAppearance = navigationBaAppearance
+        controller.navigationBar.scrollEdgeAppearance = navigationBaAppearance
+        controller.navigationBar.backgroundColor = .clear
+        controller.navigationBar.isTranslucent = false
+        controller.navigationBar.isHidden = false
         return controller
     }()
 

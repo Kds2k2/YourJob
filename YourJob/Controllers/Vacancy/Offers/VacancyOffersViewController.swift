@@ -22,7 +22,7 @@ class VacancyOffersViewController: UIViewController {
     
     var backgroundView: BackgroundView = {
         let view = BackgroundView()
-        view.imageView.image = .none
+        view.imageView.image = nil
         view.effectView.effect = .none
         view.backgroundColor = .clear
         return view
@@ -103,6 +103,11 @@ class VacancyOffersViewController: UIViewController {
         ]
         collectionView.reloadData()
     }
+    
+    private func presentVacancy(with vacancyId: String) {
+        let viewController = VacancyDetailsViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 //MARK: UICollectionViewDataSource
@@ -126,6 +131,6 @@ extension VacancyOffersViewController: UICollectionViewDataSource {
 extension VacancyOffersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        //TODO: ...
+        presentVacancy(with: items[indexPath.item].vacancyId)
     }
 }
