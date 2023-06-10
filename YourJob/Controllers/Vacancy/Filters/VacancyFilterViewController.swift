@@ -9,12 +9,13 @@
 import UIKit
 
 class VacancyFilterViewController: UIViewController {
-
+    
     private var model: VacancyFilterViewModel!
     
     init() {
         super.init(nibName: nil, bundle: nil)
         model = VacancyFilterViewModel.mock()
+        self.title = AppString.View.VacancyFilter.navigationItem.localized().uppercased()
     }
     
     required init?(coder: NSCoder) {
@@ -177,6 +178,10 @@ class VacancyFilterViewController: UIViewController {
     
     @objc private func cancel() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {

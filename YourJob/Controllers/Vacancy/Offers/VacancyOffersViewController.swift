@@ -14,6 +14,7 @@ class VacancyOffersViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+        self.title = AppString.View.VacancyOffers.navigationItem.localized().uppercased()
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +62,10 @@ class VacancyOffersViewController: UIViewController {
         view.delegate = self
         return view
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

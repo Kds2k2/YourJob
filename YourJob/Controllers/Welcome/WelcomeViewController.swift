@@ -169,6 +169,10 @@ class WelcomeViewController: UIViewController {
         loginButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     private func login() {
         let viewController = LoginWithEmailViewController()
         navigationController?.pushViewController(viewController, animated: true)

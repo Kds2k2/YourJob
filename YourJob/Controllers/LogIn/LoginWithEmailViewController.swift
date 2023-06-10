@@ -10,6 +10,15 @@ import UIKit
 
 class LoginWithEmailViewController: UIViewController {
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        self.title = AppString.View.LoginWithEmail.navigationItem.localized().uppercased()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var backgroundView: BackgroundView = {
         let view = BackgroundView()
         view.imageView.image = .none
@@ -208,6 +217,10 @@ class LoginWithEmailViewController: UIViewController {
         forgotPasswordButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         appendKeyboardObservers()
@@ -223,6 +236,21 @@ class LoginWithEmailViewController: UIViewController {
     }
     
     private func login() {
+        view.firstResponder?.resignFirstResponder()
+        let username = (usernameInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = (passwordInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        print(password)
+        
+        guard !username.isEmpty else {
+            presentWarning(title: AppString.Button.login.localized() ,message: "\n" + AppString.Messages.emailRequired.localized())
+            return
+        }
+        
+        guard !password.isEmpty else {
+            presentWarning(title: AppString.Button.login.localized() ,message: "\n" + AppString.Messages.passwordRequired.localized())
+            return
+        }
+        
         let viewController = VacancyOffersViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }

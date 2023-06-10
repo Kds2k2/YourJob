@@ -10,6 +10,15 @@ import UIKit
 
 class ResetPasswordViewController: UIViewController {
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        self.title = AppString.View.ResetPassword.navigationItem.localized().uppercased()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var backgroundView: BackgroundView = {
         let view = BackgroundView()
         view.imageView.image = .none
@@ -284,6 +293,10 @@ class ResetPasswordViewController: UIViewController {
         resendCodeLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         appendKeyboardObservers()
@@ -299,7 +312,38 @@ class ResetPasswordViewController: UIViewController {
     }
     
     private func resetPassword() {
-        navigationController?.popViewController(animated: true)
+        view.firstResponder?.resignFirstResponder()
+        let password = (passwordInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        let confirmPassword = (confirmPasswordInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        let confirmCode = (confirmationCodeInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard !password.isEmpty else {
+            presentWarning(title: AppString.Button.resetPassword.localized() ,message: "\n" + AppString.Messages.passwordRequired.localized())
+            return
+        }
+        
+        guard password.count >= 8 else {
+            presentWarning(title: AppString.Button.resetPassword.localized() ,message: "\n" + AppString.Messages.passwordWron.localized())
+            return
+        }
+        
+        guard !confirmPassword.isEmpty else {
+            presentWarning(title: AppString.Button.resetPassword.localized() ,message: "\n" + AppString.Messages.confirmPasswordRequired.localized())
+            return
+        }
+        
+        guard password == confirmPassword else {
+            presentWarning(title: AppString.Button.resetPassword.localized() ,message: "\n" + AppString.Messages.confirmPasswordWrong.localized())
+            return
+        }
+        
+        guard !confirmCode.isEmpty else {
+            presentWarning(title: AppString.Button.resetPassword.localized() ,message: "\n" + AppString.Messages.confirmationCodeRequired.localized())
+            return
+        }
+        
+        let viewController = LoginWithEmailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func resendCode() {

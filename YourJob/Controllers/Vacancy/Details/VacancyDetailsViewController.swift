@@ -15,6 +15,7 @@ class VacancyDetailsViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         model = VacancyDetailsViewModel.mock()
+        self.title = AppString.View.VacancyDetails.navigationItem.localized().uppercased()
     }
     
     required init?(coder: NSCoder) {
@@ -169,6 +170,10 @@ class VacancyDetailsViewController: UIViewController {
         respondButton.topAnchor.constraint(greaterThanOrEqualTo: tableView.bottomAnchor, constant: 40).isActive = true
         
         tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
     }
 
     private func respond() {

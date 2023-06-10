@@ -10,6 +10,15 @@ import UIKit
 
 class SignUpRegisterViewController: UIViewController {
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        self.title = AppString.View.SignUpRegister.navigationItem.localized().uppercased()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var backgroundView: BackgroundView = {
         let view = BackgroundView()
         view.imageView.image = .none
@@ -327,6 +336,10 @@ class SignUpRegisterViewController: UIViewController {
         createAccountButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         appendKeyboardObservers()
@@ -342,6 +355,48 @@ class SignUpRegisterViewController: UIViewController {
     }
     
     private func createAccount() {
+        view.firstResponder?.resignFirstResponder()
+        let firstName = (firstNameInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        let lastName = (lastNameInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        let email = (emailAddressInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = (passwordInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        let confirmPassword = (confirmPasswordInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard !firstName.isEmpty else {
+            presentWarning(title: AppString.Button.createAccount.localized() ,message: "\n" + AppString.Messages.firstNameRequired.localized())
+            return
+        }
+        
+        guard !lastName.isEmpty else {
+            presentWarning(title: AppString.Button.createAccount.localized() ,message: "\n" + AppString.Messages.lastNameRequired.localized())
+            return
+        }
+        
+        guard !email.isEmpty else {
+            presentWarning(title: AppString.Button.createAccount.localized() ,message: "\n" + AppString.Messages.emailRequired.localized())
+            return
+        }
+        
+        guard !password.isEmpty else {
+            presentWarning(title: AppString.Button.createAccount.localized() ,message: "\n" + AppString.Messages.passwordRequired.localized())
+            return
+        }
+        
+        guard password.count >= 8 else {
+            presentWarning(title: AppString.Button.createAccount.localized() ,message: "\n" + AppString.Messages.passwordWron.localized())
+            return
+        }
+        
+        guard !confirmPassword.isEmpty else {
+            presentWarning(title: AppString.Button.createAccount.localized() ,message: "\n" + AppString.Messages.confirmPasswordRequired.localized())
+            return
+        }
+        
+        guard password == confirmPassword else {
+            presentWarning(title: AppString.Button.createAccount.localized() ,message: "\n" + AppString.Messages.confirmPasswordWrong.localized())
+            return
+        }
+        
         let viewController = SignUpCompleteViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }

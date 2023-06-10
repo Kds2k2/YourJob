@@ -16,37 +16,29 @@ struct AppString {
             static let signUpPrompt = "Don't have an account yet?"
         }
         
-        struct VacancyDetails {
-            static let title = "Vacancy Details"
-            static let description = "Before sending your resume, carefully read the job posting for any instructions from the employer about how to apply."
-            static let email = "Email"
-            static let phone = "Phone"
-        }
-        
         struct LoginWithEmail {
             static let title = "Welcome"
             static let description = "Please enter your email address and password to login."
+            static let navigationItem = "Login"
         }
         
         struct SignUpRegister {
             static let title = "Let's Get Started!"
             static let description = "Please enter the following information to create a new account."
+            static let navigationItem = "Sign Up"
         }
         struct SignUpConfirm {
             static let title = "Verification Code"
             static let description = "Please enter a confirmation code that was sent to the email address you provided."
             static let resendCode = "Don't recieve a confirmation code?"
+            static let navigationItem = "Sign Up"
         }
 
         struct ResetPassword {
             static let title = "Reset Password"
             static let description = "Please enter a new password and confirmation code that was sent to the email address you provided."
             static let resendCode = "Don't recieve a confirmation code?"
-        }
-        
-        struct Complete {
-            static let title = "Complete"
-            static let description = "Lorem ipsum dolor sit amet. Est quisquam impedit ut nulla minus et ipsum adipisci in dolorum commodi. Non velit cupiditate est consequatur officia et asperiores atque 33 voluptate voluptatem sit voluptas ducimus eos laborum laudantium. Ut voluptates velit aut ipsa autem ut unde repellat. Ad totam quae est galisum enim id omnis consequatur."
+            static let navigationItem = "Password"
         }
         
         struct VacancyFilter {
@@ -57,7 +49,36 @@ struct AppString {
             static let isRemote = "Is Remote"
             static let salary = "Salary"
             static let categories = "Categories"
+            static let navigationItem = "Filter"
         }
+        
+        struct VacancyDetails {
+            static let title = "Vacancy Details"
+            static let description = "Before sending your resume, carefully read the job posting for any instructions from the employer about how to apply."
+            static let email = "Email"
+            static let phone = "Phone"
+            static let navigationItem = "Details"
+        }
+        
+        struct VacancyOffers {
+            static let navigationItem = "Offers"
+        }
+    }
+    
+    struct Messages {
+        static let firstNameRequired = "First Name is required.\nPlease enter a first name and try again."
+        static let lastNameRequired = "Last Name is required.\nPlease enter a last name and try again."
+        static let emailRequired = "Email is required.\nPlease enter valid email and try again."
+        static let passwordRequired = "Password is required.\nPlease enter password and try again."
+        static let passwordWron = "Password is wrong.\nYour password must be at least 8 characters long and must contain at least one upper case, lower case, number and special character."
+        static let confirmPasswordRequired = "Confirm Password is required.\nPlease enter confirm password and try again."
+        static let enterEmailToResetPassword = "Email is required.\nPlease enter your email if you want to reset your password."
+        static let confirmPasswordWrong = "Password is wrong.\nPassword & Confirm Password do not match."
+        static let confirmationCodeRequired = "Confirmation Code is required.\nPlease enter confirmation code that was sent to the email address you providedand and try again."
+        static let passwordResetSuccessfully = "Password reset.\nPlease log into the account with your email and new password."
+        static let confirmationCodeResent = "The confirmation code has been resent."
+        static let accountCreatedAndConfirmed = "Congratulation!\nYour account has been successfully created and confirmed."
+        static let confirmSignOut = "Are you sure you want to sign out?"
     }
     
     struct State {
