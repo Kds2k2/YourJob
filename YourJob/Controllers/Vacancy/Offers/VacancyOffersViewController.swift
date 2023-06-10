@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
 
 class VacancyOffersViewController: UIViewController {
 
@@ -90,7 +91,15 @@ class VacancyOffersViewController: UIViewController {
     }
     
     @objc private func cancel() {
-        navigationController?.popViewController(animated: true)
+        let noAction = UIAlertAction(title: AppString.Button.no.localized(), style: .default)
+        let yesAction = UIAlertAction(title: AppString.Button.yes.localized(), style: .destructive, handler: { _ in self.signOut() })
+        presentQuestion(title: AppString.View.VacancyOffers.signOut, message: "\n" + AppString.Messages.confirmSignOut, actions: [yesAction, noAction])
+    }
+    
+    private func signOut() {
+        AppManager.shared.userPool.currentUser()?.signOut()
+        AppManager.shared.clearCache()
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func reloadItems() {

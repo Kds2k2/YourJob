@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
 
 class SignUpCompleteViewController: UIViewController {
 
-    init() {
+    private var user: AWSCognitoIdentityUser!
+    private var details: AWSCognitoIdentityPasswordAuthenticationDetails?
+    
+    init(with user: AWSCognitoIdentityUser, details: AWSCognitoIdentityPasswordAuthenticationDetails?) {
         super.init(nibName: nil, bundle: nil)
         self.title = AppString.View.SignUpConfirm.navigationItem.localized().uppercased()
+        self.user = user
+        self.details = details
     }
     
     required init?(coder: NSCoder) {
@@ -136,7 +142,7 @@ class SignUpCompleteViewController: UIViewController {
         configuration.baseForegroundColor = AppColor.Button.Filled.foreground
         configuration.background.cornerRadius = AppLayout.Button.cornerRadius
         let view = UIButton(configuration: configuration)
-        view.setAttributedTitle(NSAttributedString(string: AppString.Button.submit.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: " " + AppString.Button.submit.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.submit() } ), for: .touchUpInside)
         return view
     }()
@@ -157,7 +163,7 @@ class SignUpCompleteViewController: UIViewController {
         configuration.baseBackgroundColor = AppColor.Button.Plaine.background
         configuration.baseForegroundColor = AppColor.Button.Plaine.foreground
         let view = UIButton(configuration: configuration)
-        view.setAttributedTitle(NSAttributedString(string: AppString.Button.resendAgain.localized(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: " " + AppString.Button.resendAgain.localized(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.resendCode() } ), for: .touchUpInside)
         return view
     }()
@@ -241,21 +247,12 @@ class SignUpCompleteViewController: UIViewController {
     }
     
     @objc private func cancel() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    private func resendCode() {
-        //
-    }
-    
-    @objc private func completeCodeInput() {
-        if let textFiled = view.firstResponder as? UITextField {
-            _ = textFieldShouldReturn(textFiled)
-        }
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func submit() {
         view.firstResponder?.resignFirstResponder()
+        
         let code = (confirmationCodeInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !code.isEmpty else {
@@ -263,7 +260,58 @@ class SignUpCompleteViewController: UIViewController {
             return
         }
         
-        navigationController?.popToRootViewController(animated: true)
+        submitButton.isUserInteractionEnabled = false
+        submitButton.configuration?.showsActivityIndicator = true
+        
+        user.confirmSignUp(code).continueWith { response in
+            DispatchQueue.main.async {
+                defer {
+                    self.submitButton.isUserInteractionEnabled = true
+                    self.submitButton.configuration?.showsActivityIndicator = false
+                }
+                
+                if let error = response.error as NSError? {
+                    self.presentError(title: AppString.View.SignUpConfirm.confirmError, message: "\n" + error.message.localized())
+                } else {
+                    AppManager.shared.userPool.currentUser()?.signOut()
+                    AppManager.shared.clearCache()
+                    
+                    if let details = self.details {
+                        self.user.getSession(details.username, password: details.password, validationData: nil)
+                    }
+                    
+                    let closeAction = UIAlertAction(title: AppString.Button.close.localized(), style: .default) { _ in self.cancel() }
+                    self.presentSuccess(message: "\n" + AppString.Messages.accountCreatedAndConfirmed.localized(), actions: [closeAction])
+                }
+            }
+        }
+    }
+    
+    private func resendCode() {
+        view.firstResponder?.resignFirstResponder()
+        
+        resendCodeButton.isUserInteractionEnabled = false
+        resendCodeButton.configuration?.showsActivityIndicator = true
+        
+        user.resendConfirmationCode().continueWith { response in
+            DispatchQueue.main.async {
+                defer {
+                    self.resendCodeButton.isUserInteractionEnabled = true
+                    self.resendCodeButton.configuration?.showsActivityIndicator = false
+                }
+                if let error = response.error as NSError? {
+                    self.presentError(title: AppString.View.SignUpConfirm.resendCodeError, message: "\n" + error.message.localized())
+                } else {
+                    self.presentSuccess(message: "\n" + AppString.Messages.confirmationCodeResent.localized())
+                }
+            }
+        }
+    }
+    
+    @objc private func completeCodeInput() {
+        if let textFiled = view.firstResponder as? UITextField {
+            _ = textFieldShouldReturn(textFiled)
+        }
     }
 }
 

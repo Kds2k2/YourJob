@@ -20,18 +20,22 @@ struct AppString {
             static let title = "Welcome"
             static let description = "Please enter your email address and password to login."
             static let navigationItem = "Login"
+            static let loginError = "Can`t login"
         }
         
         struct SignUpRegister {
             static let title = "Let's Get Started!"
             static let description = "Please enter the following information to create a new account."
             static let navigationItem = "Sign Up"
+            static let signUpError = "Can`t sign up"
         }
         struct SignUpConfirm {
             static let title = "Verification Code"
             static let description = "Please enter a confirmation code that was sent to the email address you provided."
             static let resendCode = "Don't recieve a confirmation code?"
             static let navigationItem = "Sign Up"
+            static let resendCodeError = "Can`t resend confirmation code"
+            static let confirmError = "Can`t confrim"
         }
 
         struct ResetPassword {
@@ -39,6 +43,8 @@ struct AppString {
             static let description = "Please enter a new password and confirmation code that was sent to the email address you provided."
             static let resendCode = "Don't recieve a confirmation code?"
             static let navigationItem = "Password"
+            static let resendCodeError = "Can`t resend confirmation code"
+            static let resetError = "Can`t reset password"
         }
         
         struct VacancyFilter {
@@ -62,6 +68,7 @@ struct AppString {
         
         struct VacancyOffers {
             static let navigationItem = "Offers"
+            static let signOut = "Sign Out"
         }
     }
     
@@ -109,6 +116,8 @@ struct AppString {
         static let submit = "Submit"
         static let respond = "Respond"
         static let accept = "Accept"
+        static let yes = "Yes"
+        static let no = "No"
     }
     
     struct Input {

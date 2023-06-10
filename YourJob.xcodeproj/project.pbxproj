@@ -31,6 +31,7 @@
 		2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6A2A2D0CA400649D61 /* WelcomeViewController.swift */; };
 		2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6C2A2D121200649D61 /* String+Localized.swift */; };
 		2615BA712A2D12DA00649D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2615BA732A2D12DA00649D61 /* Localizable.strings */; };
+		2657ED132A34E42000B14A18 /* NSError+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657ED122A34E42000B14A18 /* NSError+Message.swift */; };
 		26813B172A2DF04500746C74 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26813B162A2DF04500746C74 /* AppLayout.swift */; };
 		2684B09A2A347B690023BD20 /* VacancyOfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684B0992A347B690023BD20 /* VacancyOfferViewModel.swift */; };
 		2684B09C2A347B890023BD20 /* VacancyOfferViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684B09B2A347B890023BD20 /* VacancyOfferViewCell.swift */; };
@@ -72,12 +73,15 @@
 		26C2CA8A2A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA892A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift */; };
 		26C2CA8C2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA8B2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift */; };
 		511A1ABDFC41AB896FD099DF /* Pods_YourJob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3FF86C71680D0F3566F8D3 /* Pods_YourJob.framework */; };
+		5ED4CBB599843B021B98B23B /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A099A734908F510448767573 /* awsconfiguration.json */; };
 		A55E4D362A2D3D1A008CCC2F /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E4D352A2D3D1A008CCC2F /* AppImage.swift */; };
+		F026351306322AAC3B4EB6D2 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E3FA43556384CF64E924C05 /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		091E21C13C6DCE0BA571D25C /* Pods-YourJob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourJob.release.xcconfig"; path = "Target Support Files/Pods-YourJob/Pods-YourJob.release.xcconfig"; sourceTree = "<group>"; };
 		0C3FF86C71680D0F3566F8D3 /* Pods_YourJob.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YourJob.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E3FA43556384CF64E924C05 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		2615BA222A2CC9B500649D61 /* YourJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2615BA252A2CC9B500649D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2615BA2E2A2CC9B700649D61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		2615BA6E2A2D127500649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2615BA722A2D12DA00649D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2615BA742A2D12DE00649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2657ED122A34E42000B14A18 /* NSError+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Message.swift"; sourceTree = "<group>"; };
 		26813B162A2DF04500746C74 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 		2684B0992A347B690023BD20 /* VacancyOfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyOfferViewModel.swift; sourceTree = "<group>"; };
 		2684B09B2A347B890023BD20 /* VacancyOfferViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyOfferViewCell.swift; sourceTree = "<group>"; };
@@ -147,6 +152,7 @@
 		26C2CA892A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFIlterOptionViewModel.swift; sourceTree = "<group>"; };
 		26C2CA8B2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterOptionViewCell.swift; sourceTree = "<group>"; };
 		73B47B21B645C8FE0510D7BD /* Pods-YourJob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourJob.debug.xcconfig"; path = "Target Support Files/Pods-YourJob/Pods-YourJob.debug.xcconfig"; sourceTree = "<group>"; };
+		A099A734908F510448767573 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		A55E4D352A2D3D1A008CCC2F /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +175,7 @@
 				2615BA232A2CC9B500649D61 /* Products */,
 				AF267A2B7EA8D1226B00FCBC /* Pods */,
 				F9CBD3099C6E1E0B65F77C7B /* Frameworks */,
+				D2F3E36FA6BFFBB199D6B18B /* AmplifyConfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +195,7 @@
 				2615BA3A2A2CF04400649D61 /* Controllers */,
 				2615BA392A2CCAAC00649D61 /* Resources */,
 				2615BA252A2CC9B500649D61 /* AppDelegate.swift */,
+				26C2CA6B2A30C44000BE4C73 /* AppManager.swift */,
 				2615BA5E2A2CFE4F00649D61 /* AppString.swift */,
 				A55E4D352A2D3D1A008CCC2F /* AppImage.swift */,
 				2615BA602A2CFEFD00649D61 /* AppColor.swift */,
@@ -196,7 +204,6 @@
 				2615BA642A2D08AF00649D61 /* AppLog.swift */,
 				26813B162A2DF04500746C74 /* AppLayout.swift */,
 				2615BA332A2CC9B700649D61 /* Info.plist */,
-				26C2CA6B2A30C44000BE4C73 /* AppManager.swift */,
 			);
 			path = YourJob;
 			sourceTree = "<group>";
@@ -281,6 +288,7 @@
 				268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */,
 				26C2CA692A30C24F00BE4C73 /* UIImage+Thumbnail.swift */,
 				2615BA5A2A2CF62600649D61 /* UIFont+Montserrat.swift */,
+				2657ED122A34E42000B14A18 /* NSError+Message.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -483,8 +491,16 @@
 				73B47B21B645C8FE0510D7BD /* Pods-YourJob.debug.xcconfig */,
 				091E21C13C6DCE0BA571D25C /* Pods-YourJob.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D2F3E36FA6BFFBB199D6B18B /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				A099A734908F510448767573 /* awsconfiguration.json */,
+				1E3FA43556384CF64E924C05 /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
 			sourceTree = "<group>";
 		};
 		F9CBD3099C6E1E0B65F77C7B /* Frameworks */ = {
@@ -506,6 +522,7 @@
 				2615BA1E2A2CC9B500649D61 /* Sources */,
 				2615BA1F2A2CC9B500649D61 /* Frameworks */,
 				2615BA202A2CC9B500649D61 /* Resources */,
+				A812FCC0734516D91C36EFCE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -569,12 +586,31 @@
 				2615BA512A2CF4C200649D61 /* Montserrat-Regular.otf in Resources */,
 				2615BA542A2CF4C200649D61 /* Montserrat-Black.otf in Resources */,
 				2615BA562A2CF4C200649D61 /* Montserrat-Light.otf in Resources */,
+				5ED4CBB599843B021B98B23B /* awsconfiguration.json in Resources */,
+				F026351306322AAC3B4EB6D2 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A812FCC0734516D91C36EFCE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YourJob/Pods-YourJob-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YourJob/Pods-YourJob-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YourJob/Pods-YourJob-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D9B8DF77FE56CCD0A802E17C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,6 +645,7 @@
 				2615BA5D2A2CFA4D00649D61 /* AppFont.swift in Sources */,
 				2684B09C2A347B890023BD20 /* VacancyOfferViewCell.swift in Sources */,
 				26C2CA672A30B26200BE4C73 /* WebImageVIew.swift in Sources */,
+				2657ED132A34E42000B14A18 /* NSError+Message.swift in Sources */,
 				26C2CA882A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift in Sources */,
 				2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */,
 				26813B172A2DF04500746C74 /* AppLayout.swift in Sources */,

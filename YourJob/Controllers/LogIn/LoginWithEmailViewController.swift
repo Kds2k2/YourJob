@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
 
 class LoginWithEmailViewController: UIViewController {
 
+    private var passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
+    private var passwordAuthenticationDetails: AWSCognitoIdentityPasswordAuthenticationDetails?
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         self.title = AppString.View.LoginWithEmail.navigationItem.localized().uppercased()
@@ -126,7 +130,7 @@ class LoginWithEmailViewController: UIViewController {
         configuration.baseForegroundColor = AppColor.Button.Filled.foreground
         configuration.background.cornerRadius = AppLayout.Button.cornerRadius
         let view = UIButton(configuration: configuration)
-        view.setAttributedTitle(NSAttributedString(string: AppString.Button.login.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: " " + AppString.Button.login.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.login() } ), for: .touchUpInside)
         return view
     }()
@@ -232,14 +236,13 @@ class LoginWithEmailViewController: UIViewController {
     }
     
     @objc private func cancel() {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func login() {
         view.firstResponder?.resignFirstResponder()
         let username = (usernameInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
         let password = (passwordInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
-        print(password)
         
         guard !username.isEmpty else {
             presentWarning(title: AppString.Button.login.localized() ,message: "\n" + AppString.Messages.emailRequired.localized())
@@ -251,12 +254,37 @@ class LoginWithEmailViewController: UIViewController {
             return
         }
         
-        let viewController = VacancyOffersViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        loginWithEmailButton.isUserInteractionEnabled = false
+        loginWithEmailButton.configuration?.showsActivityIndicator = true
+        
+        AppManager.shared.userPool.currentUser()?.signOut()
+        AppManager.shared.clearCache()
+        
+        passwordAuthenticationDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: username, password: password)
+        if !(passwordAuthenticationCompletionSource?.trySet(result: passwordAuthenticationDetails) ?? false) {
+            cancel()
+        }
     }
     
     private func resetPassword() {
-        let viewController = ResetPasswordViewController()
+        view.firstResponder?.resignFirstResponder()
+        let username = (usernameInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard !username.isEmpty else {
+            presentWarning(title: AppString.Button.login.localized() ,message: "\n" + AppString.Messages.emailRequired.localized())
+            return
+        }
+        
+        let user = AppManager.shared.userPool.getUser(username)
+        
+        let viewController = ResetPasswordViewController(for: user)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func confirmUser() {
+        guard let details = passwordAuthenticationDetails else { return }
+        let user = AppManager.shared.userPool.getUser(details.username)
+        let viewController = SignUpCompleteViewController(with: user, details: details)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -329,6 +357,41 @@ extension LoginWithEmailViewController {
         animateWithKeyboard(notification: notification) { keyboardFrame in
             self.scrollView.contentInset = UIEdgeInsets.zero
             self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+        }
+    }
+}
+
+//MARK: AWSCognitoIdentityPasswordAuthentication
+extension LoginWithEmailViewController: AWSCognitoIdentityPasswordAuthentication {
+    func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
+        self.passwordAuthenticationCompletionSource = passwordAuthenticationCompletionSource
+        DispatchQueue.main.async {
+            guard let username = self.usernameInputField.text?.trimmingCharacters(in: .whitespacesAndNewlines), username.isEmpty,
+                  let lastKnownUsername = authenticationInput.lastKnownUsername, !lastKnownUsername.isEmpty else { return }
+            
+            self.usernameInputField.text = lastKnownUsername
+        }
+    }
+    
+    func didCompleteStepWithError(_ error: Error?) {
+        DispatchQueue.main.async {
+            defer {
+                self.loginWithEmailButton.isUserInteractionEnabled = true
+                self.loginWithEmailButton.configuration?.showsActivityIndicator = false
+                self.passwordInputField.text = nil
+            }
+            
+            if let error = error as NSError? {
+                switch error.code {
+                case AWSCognitoIdentityProviderErrorType.userNotConfirmed.rawValue:
+                    self.confirmUser()
+                    break
+                default:
+                    self.presentError(title: AppString.View.LoginWithEmail.loginError, message: "\n" + error.message.localized())
+                }
+            } else {
+                self.cancel()
+            }
         }
     }
 }

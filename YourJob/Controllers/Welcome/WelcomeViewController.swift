@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
 
 class WelcomeViewController: UIViewController {
-
+    
     var backgroundView: BackgroundView = {
         let view = BackgroundView()
         view.imageView.image = AppImage.BackGround.lightBlue
         //view.effectView.effect = UIBlurEffect(style: .regular)
         view.backgroundColor = .clear
         return view
+    }()
+    
+    var loginViewController: LoginWithEmailViewController = {
+        return LoginWithEmailViewController()
     }()
     
     var scrollView: UIScrollView = {
@@ -76,7 +81,7 @@ class WelcomeViewController: UIViewController {
         configuration.background.cornerRadius = AppLayout.Button.cornerRadius
         let view = UIButton(configuration: configuration)
         view.setAttributedTitle(NSAttributedString(string: AppString.Button.loginWithEmail.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
-        view.addAction(UIAction(handler: { _ in self.login() } ), for: .touchUpInside)
+        view.addAction(UIAction(handler: { _ in self.sessionRequest() } ), for: .touchUpInside)
         return view
     }()
     
@@ -167,19 +172,43 @@ class WelcomeViewController: UIViewController {
         loginButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
         loginButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: AppLayout.Button.height).isActive = true
+        
+        AppManager.shared.userPool.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        
+        if AppManager.shared.userPool.currentUser()?.isSignedIn ?? false {
+            sessionRequest()
+        }
     }
     
-    private func login() {
-        let viewController = LoginWithEmailViewController()
+    private func sessionRequest() {
+        AppManager.shared.userPool.currentUser()?.getSession().continueOnSuccessWith(block: { _ in
+            DispatchQueue.main.async {
+                self.presentOffers()
+            }
+        })
+    }
+    
+    private func presentOffers() {
+        let viewController = VacancyOffersViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func signUp() {
         let viewController = SignUpRegisterViewController()
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+//MARK: AWSCognitoIdentityInteractiveAuthenticationDelegate
+extension WelcomeViewController: AWSCognitoIdentityInteractiveAuthenticationDelegate {
+    func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(self.loginViewController, animated: true)
+        }
+        return loginViewController
     }
 }
