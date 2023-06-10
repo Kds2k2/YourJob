@@ -13,11 +13,11 @@
     },
     "categories": {
       "auth": {
-        "yourjob61a02a41": {
-          "userPoolId": "eu-north-1_eKkDwGDeQ",
+        "yourjobe8df5f7f": {
+          "userPoolId": "eu-north-1_Tvv3JSMnU",
           "userPoolName": "YourJob",
-          "webClientId": "71kom7k6sbngvroeis8u17nah5",
-          "nativeClientId": "71kom7k6sbngvroeis8u17nah5",
+          "webClientId": "3arcs2hfiuraam3lkrpcnfq1k7",
+          "nativeClientId": "3arcs2hfiuraam3lkrpcnfq1k7",
           "identityPoolId": "eu-north-1:39c13464-ba01-471d-82e5-15610daa7975",
           "identityPoolName": "YourJob",
           "allowUnauthenticatedIdentities": true,

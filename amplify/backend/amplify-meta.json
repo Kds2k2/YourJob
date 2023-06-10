@@ -13,25 +13,23 @@
     }
   },
   "auth": {
-    "yourjob61a02a41": {
+    "yourjobe8df5f7f": {
       "service": "Cognito",
       "serviceType": "imported",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "output": {
-        "UserPoolId": "eu-north-1_eKkDwGDeQ",
+        "UserPoolId": "eu-north-1_Tvv3JSMnU",
         "UserPoolName": "YourJob",
-        "AppClientID": "71kom7k6sbngvroeis8u17nah5",
-        "AppClientIDWeb": "71kom7k6sbngvroeis8u17nah5",
+        "AppClientID": "3arcs2hfiuraam3lkrpcnfq1k7",
+        "AppClientIDWeb": "3arcs2hfiuraam3lkrpcnfq1k7",
         "IdentityPoolId": "eu-north-1:39c13464-ba01-471d-82e5-15610daa7975",
         "IdentityPoolName": "YourJob"
       },
       "frontendAuthConfig": {
         "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
+        "usernameAttributes": [],
         "signupAttributes": [
           "EMAIL"
         ],
@@ -50,7 +48,7 @@
           "EMAIL"
         ]
       },
-      "lastPushTimeStamp": "2023-06-10T16:16:59.571Z"
+      "lastPushTimeStamp": "2023-06-10T21:52:57.327Z"
     }
   }
 }

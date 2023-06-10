@@ -1,11 +1,8 @@
 {
   "authSelections": "identityPoolAndUserPool",
-  "resourceName": "yourjob61a02a41",
+  "resourceName": "yourjobe8df5f7f",
   "serviceType": "imported",
   "region": "eu-north-1",
-  "usernameAttributes": [
-    "email"
-  ],
   "requiredAttributes": [
     "email"
   ],

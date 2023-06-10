@@ -19,8 +19,8 @@
                 },
                 "CognitoUserPool": {
                     "Default": {
-                        "PoolId": "eu-north-1_eKkDwGDeQ",
-                        "AppClientId": "71kom7k6sbngvroeis8u17nah5",
+                        "PoolId": "eu-north-1_Tvv3JSMnU",
+                        "AppClientId": "3arcs2hfiuraam3lkrpcnfq1k7",
                         "Region": "eu-north-1"
                     }
                 },
@@ -28,9 +28,7 @@
                     "Default": {
                         "authenticationFlowType": "USER_SRP_AUTH",
                         "socialProviders": [],
-                        "usernameAttributes": [
-                            "EMAIL"
-                        ],
+                        "usernameAttributes": [],
                         "signupAttributes": [
                             "EMAIL"
                         ],
