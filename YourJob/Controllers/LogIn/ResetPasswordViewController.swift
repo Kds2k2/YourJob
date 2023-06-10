@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
 
 class ResetPasswordViewController: UIViewController {
 
-    init() {
+    private var user: AWSCognitoIdentityUser!
+    
+    init(for user: AWSCognitoIdentityUser) {
         super.init(nibName: nil, bundle: nil)
         self.title = AppString.View.ResetPassword.navigationItem.localized().uppercased()
+        self.user = user
     }
     
     required init?(coder: NSCoder) {
@@ -181,7 +185,7 @@ class ResetPasswordViewController: UIViewController {
         configuration.baseForegroundColor = AppColor.Button.Filled.foreground
         configuration.background.cornerRadius = AppLayout.Button.cornerRadius
         let view = UIButton(configuration: configuration)
-        view.setAttributedTitle(NSAttributedString(string: AppString.Button.resetPassword.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: " " + AppString.Button.resetPassword.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.resetPassword() } ), for: .touchUpInside)
         return view
     }()
@@ -202,7 +206,7 @@ class ResetPasswordViewController: UIViewController {
         configuration.baseBackgroundColor = AppColor.Button.Plaine.background
         configuration.baseForegroundColor = AppColor.Button.Plaine.foreground
         let view = UIButton(configuration: configuration)
-        view.setAttributedTitle(NSAttributedString(string: AppString.Button.resendAgain.localized(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: " " + AppString.Button.resendAgain.localized(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.resendCode() } ), for: .touchUpInside)
         return view
     }()
@@ -291,6 +295,8 @@ class ResetPasswordViewController: UIViewController {
         resendCodeLabel.bottomAnchor.constraint(equalTo: resendCodeButton.topAnchor, constant: 0).isActive = true
         resendCodeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: AppLayout.View.inset).isActive = true
         resendCodeLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -AppLayout.View.inset).isActive = true
+        
+        resendCode(silent: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -342,14 +348,50 @@ class ResetPasswordViewController: UIViewController {
             return
         }
         
-        let viewController = LoginWithEmailViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        resetPasswordButton.isUserInteractionEnabled = false
+        resetPasswordButton.configuration?.showsActivityIndicator = true
+        
+        user.confirmForgotPassword(confirmCode, password: password).continueWith { response in
+            DispatchQueue.main.async {
+                defer {
+                    self.resetPasswordButton.isUserInteractionEnabled = true
+                    self.resetPasswordButton.configuration?.showsActivityIndicator = false
+                }
+                
+                if let error = response.error as NSError? {
+                    self.presentError(title: AppString.View.ResetPassword.resetError, message: "\n" + error.message.localized())
+                } else {
+                    let closeAction = UIAlertAction(title: AppString.Button.close.localized(), style: .default, handler: { _ in self.cancel() })
+                    self.presentSuccess(message: "\n" + AppString.Messages.passwordResetSuccessfully.localized(), actions: [closeAction])
+                }
+            }
+        }
     }
     
-    private func resendCode() {
-//        let viewController = ResetPasswordViewController()
-//        navigationController?.pushViewController(viewController, animated: true)
-        print("Code Resend")
+    private func resendCode(silent: Bool = false) {
+        view.firstResponder?.resignFirstResponder()
+        
+        if !silent {
+            resendCodeButton.isUserInteractionEnabled = false
+            resendCodeButton.configuration?.showsActivityIndicator = true
+        }
+        
+        user.forgotPassword().continueWith { response in
+            DispatchQueue.main.async {
+                defer {
+                    self.resendCodeButton.isUserInteractionEnabled = true
+                    self.resendCodeButton.configuration?.showsActivityIndicator = false
+                }
+                
+                guard !silent else { return }
+                if let error = response.error as NSError? {
+                    let closeAction = UIAlertAction(title: AppString.Button.close.localized(), style: .default, handler: { _ in self.cancel() })
+                    self.presentError(title: AppString.View.ResetPassword.resendCodeError, message: "\n" + error.message.localized(), actions: [closeAction])
+                } else {
+                    self.presentSuccess(message: "\n" + AppString.Messages.confirmationCodeResent.localized())
+                }
+            }
+        }
     }
     
     @objc private func completeCodeInput() {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

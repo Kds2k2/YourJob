@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
 
 class SignUpRegisterViewController: UIViewController {
 
@@ -240,7 +241,7 @@ class SignUpRegisterViewController: UIViewController {
         configuration.baseForegroundColor = AppColor.Button.Filled.foreground
         configuration.background.cornerRadius = AppLayout.Button.cornerRadius
         let view = UIButton(configuration: configuration)
-        view.setAttributedTitle(NSAttributedString(string: AppString.Button.createAccount.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
+        view.setAttributedTitle(NSAttributedString(string: " " + AppString.Button.createAccount.localized().uppercased(), attributes: [.font: AppFont.Button.title]), for: .normal)
         view.addAction(UIAction(handler: { _ in self.createAccount() } ), for: .touchUpInside)
         return view
     }()
@@ -361,6 +362,7 @@ class SignUpRegisterViewController: UIViewController {
         let email = (emailAddressInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
         let password = (passwordInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
         let confirmPassword = (confirmPasswordInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        let phoneNumber = (phoneNumberInputField.text ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !firstName.isEmpty else {
             presentWarning(title: AppString.Button.createAccount.localized() ,message: "\n" + AppString.Messages.firstNameRequired.localized())
@@ -397,7 +399,41 @@ class SignUpRegisterViewController: UIViewController {
             return
         }
         
-        let viewController = SignUpCompleteViewController()
+        var attributes: [AWSCognitoIdentityUserAttributeType] = []
+        attributes.append(AWSCognitoIdentityUserAttributeType(name: "email", value: email))
+        attributes.append(AWSCognitoIdentityUserAttributeType(name: "given_name", value: firstName))
+        attributes.append(AWSCognitoIdentityUserAttributeType(name: "family_name", value: lastName))
+        if !phoneNumber.isEmpty {
+            attributes.append(AWSCognitoIdentityUserAttributeType(name: "phone_number", value: phoneNumber))
+        }
+        
+        createAccountButton.isUserInteractionEnabled = false
+        createAccountButton.configuration?.showsActivityIndicator = true
+        
+        AppManager.shared.userPool.signUp(email, password: password, userAttributes: attributes, validationData: nil).continueWith { response in
+            DispatchQueue.main.async {
+                defer {
+                    self.createAccountButton.isUserInteractionEnabled = true
+                    self.createAccountButton.configuration?.showsActivityIndicator = false
+                }
+                if let error = response.error as NSError? {
+                    self.presentError(title: AppString.View.SignUpRegister.signUpError, message: "\n" + error.message.localized())
+                } else {
+                    if let result = response.result, result.userConfirmed?.intValue != AWSCognitoIdentityUserStatus.confirmed.rawValue {
+                        let details = AWSCognitoIdentityPasswordAuthenticationDetails(username: email, password: password)
+                        self.confirmUser(result.user, with: details)
+                    } else {
+                        self.cancel()
+                    }
+                }
+            }
+        }
+    }
+    
+    private func confirmUser(_ user: AWSCognitoIdentityUser?, with details: AWSCognitoIdentityPasswordAuthenticationDetails?) {
+        guard let user = user else { return }
+        
+        let viewController = SignUpCompleteViewController(with: user, details: details)
         navigationController?.pushViewController(viewController, animated: true)
     }
                            

@@ -7,9 +7,18 @@
 //
 
 import Foundation
+import AWSCognitoIdentityProvider
 
 class AppManager {
+    static let shared = AppManager()
     
+    let userPool: AWSCognitoIdentityUserPool = {
+        return AWSCognitoIdentityUserPool.default()
+    }()
+    
+    func clearCache() {
+        //TODO: ...
+    }
 }
 
 //MARK: FileManager
