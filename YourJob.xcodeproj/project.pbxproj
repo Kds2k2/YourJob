@@ -32,6 +32,9 @@
 		2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6C2A2D121200649D61 /* String+Localized.swift */; };
 		2615BA712A2D12DA00649D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2615BA732A2D12DA00649D61 /* Localizable.strings */; };
 		26813B172A2DF04500746C74 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26813B162A2DF04500746C74 /* AppLayout.swift */; };
+		2684B09A2A347B690023BD20 /* VacancyOfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684B0992A347B690023BD20 /* VacancyOfferViewModel.swift */; };
+		2684B09C2A347B890023BD20 /* VacancyOfferViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684B09B2A347B890023BD20 /* VacancyOfferViewCell.swift */; };
+		2684B09E2A3481E50023BD20 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684B09D2A3481E50023BD20 /* Date+String.swift */; };
 		268B72162A2FA1D1000A177F /* VacancyOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B72152A2FA1D1000A177F /* VacancyOffersViewController.swift */; };
 		268B72182A2FA1ED000A177F /* VacancyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B72172A2FA1ED000A177F /* VacancyDetailsViewController.swift */; };
 		268B721A2A2FA204000A177F /* VacancyFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B72192A2FA204000A177F /* VacancyFilterViewController.swift */; };
@@ -101,6 +104,9 @@
 		2615BA722A2D12DA00649D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2615BA742A2D12DE00649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		26813B162A2DF04500746C74 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
+		2684B0992A347B690023BD20 /* VacancyOfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyOfferViewModel.swift; sourceTree = "<group>"; };
+		2684B09B2A347B890023BD20 /* VacancyOfferViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyOfferViewCell.swift; sourceTree = "<group>"; };
+		2684B09D2A3481E50023BD20 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		268B72152A2FA1D1000A177F /* VacancyOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyOffersViewController.swift; sourceTree = "<group>"; };
 		268B72172A2FA1ED000A177F /* VacancyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyDetailsViewController.swift; sourceTree = "<group>"; };
 		268B72192A2FA204000A177F /* VacancyFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterViewController.swift; sourceTree = "<group>"; };
@@ -259,14 +265,15 @@
 		2615BA402A2CF0E400649D61 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2615BA5A2A2CF62600649D61 /* UIFont+Montserrat.swift */,
 				2615BA662A2D09C900649D61 /* Date+ISO8601.swift */,
+				2684B09D2A3481E50023BD20 /* Date+String.swift */,
 				2615BA6C2A2D121200649D61 /* String+Localized.swift */,
 				268BF9852A2E294500DD6EC2 /* UIViewController+Alert.swift */,
-				268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */,
 				268BF9892A2E5EC600DD6EC2 /* UIView+FirstResponder.swift */,
 				268B72262A2FB862000A177F /* UIVIew+ReuseIdentifair.swift */,
+				268BF9872A2E311F00DD6EC2 /* UIImage+Attachment.swift */,
 				26C2CA692A30C24F00BE4C73 /* UIImage+Thumbnail.swift */,
+				2615BA5A2A2CF62600649D61 /* UIFont+Montserrat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -425,6 +432,7 @@
 		26C2CA762A30DF5600BE4C73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2684B09B2A347B890023BD20 /* VacancyOfferViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +440,7 @@
 		26C2CA772A30DF5D00BE4C73 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2684B0992A347B690023BD20 /* VacancyOfferViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -547,12 +556,14 @@
 				26C2CA792A30E03500BE4C73 /* VacancyFilterStringViewModel.swift in Sources */,
 				268BF9882A2E311F00DD6EC2 /* UIImage+Attachment.swift in Sources */,
 				2615BA5D2A2CFA4D00649D61 /* AppFont.swift in Sources */,
+				2684B09C2A347B890023BD20 /* VacancyOfferViewCell.swift in Sources */,
 				26C2CA672A30B26200BE4C73 /* WebImageVIew.swift in Sources */,
 				26C2CA882A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift in Sources */,
 				2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */,
 				26813B172A2DF04500746C74 /* AppLayout.swift in Sources */,
 				26C165352A2E0F5600568A78 /* ResetPasswordViewController.swift in Sources */,
 				26C2CA6C2A30C44000BE4C73 /* AppManager.swift in Sources */,
+				2684B09A2A347B690023BD20 /* VacancyOfferViewModel.swift in Sources */,
 				268BF98A2A2E5EC600DD6EC2 /* UIView+FirstResponder.swift in Sources */,
 				2615BA5F2A2CFE4F00649D61 /* AppString.swift in Sources */,
 				26C2CA7B2A30E05600BE4C73 /* VacancyFilterBoolViewModel.swift in Sources */,
@@ -588,6 +599,7 @@
 				268B72212A2FB1A7000A177F /* VacancyDetailsViewModel.swift in Sources */,
 				26C2CA7D2A30E06900BE4C73 /* VacancyFilterEnumViewModel.swift in Sources */,
 				2615BA612A2CFEFD00649D61 /* AppColor.swift in Sources */,
+				2684B09E2A3481E50023BD20 /* Date+String.swift in Sources */,
 				26C165332A2E0F3E00568A78 /* LoginWithEmailViewController.swift in Sources */,
 				26C165392A2E0F7A00568A78 /* SignUpCompleteViewController.swift in Sources */,
 				268BF9862A2E294500DD6EC2 /* UIViewController+Alert.swift in Sources */,
