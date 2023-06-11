@@ -74,7 +74,7 @@ class VacancyFilterNumberViewCell: UITableViewCell {
         if let model = model {
             if let value = model.value {
                 valueSlider.value = Float(value) / 1000
-                var string = String(format: model.format, arguments: [value])
+                let string = String(format: model.format, arguments: [value])
                 valueLabel.attributedText = NSAttributedString(string: string, attributes: [.font: AppFont.Cell.title, .foregroundColor: AppColor.Cell.text])
             } else {
                 valueSlider.value = valueSlider.minimumValue
