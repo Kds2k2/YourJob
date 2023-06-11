@@ -11,7 +11,10 @@ import AWSCognitoIdentityProvider
 
 class VacancyOffersViewController: UIViewController {
 
+    private var filter: ListYourJobVacancyFilterInput? = nil
+    private var vacancies: [String: YourJobVacancy] = [:]
     private var items: [VacancyOfferViewModel] = []
+    private var nextToken: String? = nil
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -87,7 +90,7 @@ class VacancyOffersViewController: UIViewController {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         
-        reloadItems()
+        reloadData(with: nil, nextToken: nil)
     }
     
     @objc private func cancel() {
@@ -102,24 +105,42 @@ class VacancyOffersViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
+    private func reloadData(with filter: ListYourJobVacancyFilterInput?, nextToken: String?) {
+        let query = ListYourJobVacanciesQuery(filter: filter, limit: 20, nextToken: nextToken)
+        AppManager.shared.appSync.fetch(query: query, cachePolicy: .returnCacheDataAndFetch, queue: .global()) { result, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    AppLog.error(error)
+                    return
+                }
+                
+                if let result = result {
+                    if let apiError = (result.errors?.isEmpty ?? true) ? nil : ApiError(result.errors!) {
+                        AppLog.error(apiError)
+                    }
+                    
+                    if let snapshot = result.data?.listYourJobVacancies?.snapshot {
+                        let vacancyConnection = YourJobVacancyConnection(snapshot: snapshot)
+                        self.nextToken = vacancyConnection.nextToken
+                        vacancyConnection.items?.forEach({ self.vacancies[$0.id] = $0 })
+                    }
+                    self.reloadItems()
+                }
+            }
+        }
+    }
+    
     private func reloadItems() {
-        items = [
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-            VacancyOfferViewModel.mock(),
-        ]
+        items = vacancies.values
+            .compactMap({ VacancyOfferViewModel(with: $0) })
+            .sorted(by: { $0.timestamp > $1.timestamp })
+        
         collectionView.reloadData()
     }
     
     private func presentVacancy(with vacancyId: String) {
-        let viewController = VacancyDetailsViewController()
+        guard let vacancy = self.vacancies[vacancyId] else { return }
+        let viewController = VacancyDetailsViewController(with: vacancy)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

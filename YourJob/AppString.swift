@@ -64,6 +64,13 @@ struct AppString {
             static let email = "Email"
             static let phone = "Phone"
             static let navigationItem = "Details"
+            static let jobTitle = "Job Title"
+            static let jobDescription = "Description"
+            static let location = "Location"
+            static let isRemote = "Is Remote"
+            static let salary = "Salary"
+            static let categories = "Categories"
+            static let published = "Published"
         }
         
         struct VacancyOffers {
@@ -135,6 +142,17 @@ struct AppString {
     
     struct Common {
         static let version = "Version"
+    }
+    
+    struct VacancyCategory {
+        static let serviceIndustries = "Service Industries"
+        static let salesAndPurchase = "Sales & Purchase"
+        static let delivery = "Delivery"
+        static let design = "Design"
+        static let entertainment = "Entertainment"
+        static let engineering = "Engineering"
+        static let informationTechnology = "Information Technology"
+        static let construction = "Construction"
     }
 }
     

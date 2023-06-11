@@ -13,19 +13,7 @@
     },
     "categories": {
       "auth": {
-        "yourjobe8df5f7f": {
-          "userPoolId": "eu-north-1_Tvv3JSMnU",
-          "userPoolName": "YourJob",
-          "webClientId": "3arcs2hfiuraam3lkrpcnfq1k7",
-          "nativeClientId": "3arcs2hfiuraam3lkrpcnfq1k7",
-          "identityPoolId": "eu-north-1:39c13464-ba01-471d-82e5-15610daa7975",
-          "identityPoolName": "YourJob",
-          "allowUnauthenticatedIdentities": true,
-          "authRoleArn": "arn:aws:iam::686554728177:role/YourJob.Cognito.IdentityPool.Auth",
-          "authRoleName": "YourJob.Cognito.IdentityPool.Auth",
-          "unauthRoleArn": "arn:aws:iam::686554728177:role/YourJob.Cognito.IdentityPool.Unauth",
-          "unauthRoleName": "YourJob.Cognito.IdentityPool.Unauth"
-        }
+        "yourjobe8df5f7f": {}
       }
     }
   }

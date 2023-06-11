@@ -8,12 +8,23 @@
 
 import Foundation
 import AWSCognitoIdentityProvider
+import AWSAppSync
 
 class AppManager {
     static let shared = AppManager()
     
     let userPool: AWSCognitoIdentityUserPool = {
         return AWSCognitoIdentityUserPool.default()
+    }()
+    
+    let appSync: AWSAppSyncClient = {
+        let appSyncClientConfiguration = try! AWSAppSyncClientConfiguration(appSyncServiceConfig: AWSAppSyncServiceConfig(),
+                                                                            userPoolsAuthProvider: AppManager.userPoolsAuthProvider,
+                                                                            cacheConfiguration: AppManager.cacheConfiguration)
+        
+        let appSync = try! AWSAppSyncClient(appSyncConfig: appSyncClientConfiguration)
+        appSync.apolloClient?.cacheKeyForObject = { $0["id"] }
+        return appSync
     }()
     
     func clearCache() {
@@ -45,8 +56,8 @@ extension AppManager {
         }
     }
     
-    public static func cacheUrl(fileName: String) -> URL {
-        return filedUrl(directory: "Cache", fileName: fileName)
+    public static func imageCacheUrl(fileName: String) -> URL {
+        return filedUrl(directory: "ImageCache", fileName: fileName)
     }
     
     private static func filedUrl(directory: String?, fileName: String) -> URL{
@@ -54,4 +65,35 @@ extension AppManager {
         let fileUrl = dicrectoryUrl.appendingPathComponent(fileName)
         return fileUrl
     }
+}
+
+//MARK: AWSAppSyncCacheConfiguration
+extension AppManager {
+    fileprivate static let cacheConfiguration: AWSAppSyncCacheConfiguration = {
+        let directoryUrl = AppManager.directoryUrl(directory: "AppSyncCache")
+        return try! AWSAppSyncCacheConfiguration(withRootDirectory: directoryUrl)
+    }()
+}
+
+//MARK:
+extension AppManager {
+    fileprivate static let userPoolsAuthProvider: AWSCognitoUserPoolsAuthProvider = {
+        class UserPoolAuthProvider: AWSCognitoUserPoolsAuthProviderAsync {
+            func getLatestAuthToken(_ callback: @escaping (String?, Error?) -> Void) {
+                if let user = AppManager.shared.userPool.currentUser() {
+                    user.getSession().continueWith { response in
+                        if let idToken = response.result?.idToken {
+                            callback(idToken.tokenString, nil)
+                        } else {
+                            callback(nil, response.error)
+                        }
+                        return nil
+                    }
+                } else {
+                    callback(nil, nil)
+                }
+            }
+        }
+        return UserPoolAuthProvider()
+    }()
 }

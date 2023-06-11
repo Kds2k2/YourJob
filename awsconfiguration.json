@@ -42,5 +42,19 @@
                 "EMAIL"
             ]
         }
+    },
+    "AppSync": {
+        "Default": {
+            "ApiUrl": "https://irhf63senbel3lz2qyowlbeuqm.appsync-api.eu-north-1.amazonaws.com/graphql",
+            "Region": "eu-north-1",
+            "AuthMode": "AMAZON_COGNITO_USER_POOLS",
+            "ClientDatabasePrefix": "YourJob_AMAZON_COGNITO_USER_POOLS"
+        },
+        "YourJob_AWS_IAM": {
+            "ApiUrl": "https://irhf63senbel3lz2qyowlbeuqm.appsync-api.eu-north-1.amazonaws.com/graphql",
+            "Region": "eu-north-1",
+            "AuthMode": "AWS_IAM",
+            "ClientDatabasePrefix": "YourJob_AWS_IAM"
+        }
     }
 }

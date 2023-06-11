@@ -1,0 +1,15 @@
+projects:
+  YourJob:
+    schemaPath: graphql/schema.json
+    includes:
+      - graphql/**/*.graphql
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: swift
+        generatedFileName: /YourJob/Api/Api.swift
+        docsFilePath: graphql
+        region: eu-north-1
+        apiId: hjhakipxlzhxlev4yc5aaddqou
+        maxDepth: 4

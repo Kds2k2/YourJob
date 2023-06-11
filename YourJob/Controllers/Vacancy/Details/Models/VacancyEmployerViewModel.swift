@@ -15,6 +15,10 @@ class VacancyEmployerViewModel {
     var attributedEmail: NSAttributedString?
     var attributedPhone: NSAttributedString?
     
+    convenience init(with employer: YourJobEmployer) {
+        self.init(with: employer.logoUrl, title: employer.title, description: employer.description, email: employer.email, phone: employer.phone)
+    }
+    
     init(with logoUrl: String?, title: String?, description: String?, email: String?, phone: String?) {
         if let logoUrl = logoUrl, !logoUrl.isEmpty {
             self.logoUrl = URL(string: logoUrl)

@@ -50,5 +50,33 @@
       },
       "lastPushTimeStamp": "2023-06-10T21:52:57.327Z"
     }
+  },
+  "api": {
+    "YourJob": {
+      "service": "AppSync",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS"
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "userPoolConfig": {
+            "userPoolId": "eu-north-1_Tvv3JSMnU",
+            "awsRegion": "eu-north-1",
+            "defaultAction": "ALLOW",
+            "appIdClientRegex": null
+          }
+        },
+        "GraphQLAPIIdOutput": "hjhakipxlzhxlev4yc5aaddqou",
+        "GraphQLAPIEndpointOutput": "https://irhf63senbel3lz2qyowlbeuqm.appsync-api.eu-north-1.amazonaws.com/graphql",
+        "name": "YourJob",
+        "region": "eu-north-1"
+      },
+      "lastPushTimeStamp": "2023-06-11T17:51:18.121Z"
+    }
   }
 }

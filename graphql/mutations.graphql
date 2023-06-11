@@ -1,0 +1,109 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateYourJobEmployer($input: CreateYourJobEmployerInput!) {
+  createYourJobEmployer(input: $input) {
+    id
+    title
+    description
+    logoUrl
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateYourJobEmployer($input: UpdateYourJobEmployerInput!) {
+  updateYourJobEmployer(input: $input) {
+    id
+    title
+    description
+    logoUrl
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteYourJobEmployer($input: DeleteYourJobEmployerInput!) {
+  deleteYourJobEmployer(input: $input) {
+    id
+    title
+    description
+    logoUrl
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateYourJobVacancy($input: CreateYourJobVacancyInput!) {
+  createYourJobVacancy(input: $input) {
+    id
+    employerId
+    employer {
+      id
+      title
+      description
+      logoUrl
+      email
+      phone
+      createdAt
+      updatedAt
+    }
+    category
+    title
+    description
+    salary
+    location
+    isRemote
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateYourJobVacancy($input: UpdateYourJobVacancyInput!) {
+  updateYourJobVacancy(input: $input) {
+    id
+    employerId
+    employer {
+      id
+      title
+      description
+      logoUrl
+      email
+      phone
+      createdAt
+      updatedAt
+    }
+    category
+    title
+    description
+    salary
+    location
+    isRemote
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteYourJobVacancy($input: DeleteYourJobVacancyInput!) {
+  deleteYourJobVacancy(input: $input) {
+    id
+    employerId
+    employer {
+      id
+      title
+      description
+      logoUrl
+      email
+      phone
+      createdAt
+      updatedAt
+    }
+    category
+    title
+    description
+    salary
+    location
+    isRemote
+    createdAt
+    updatedAt
+  }
+}

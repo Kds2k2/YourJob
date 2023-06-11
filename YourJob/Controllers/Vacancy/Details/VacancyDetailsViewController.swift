@@ -12,9 +12,9 @@ class VacancyDetailsViewController: UIViewController {
 
     private var model: VacancyDetailsViewModel!
     
-    init() {
+    init(with vacancy: YourJobVacancy) {
         super.init(nibName: nil, bundle: nil)
-        model = VacancyDetailsViewModel.mock()
+        model = VacancyDetailsViewModel(with: vacancy)
         self.title = AppString.View.VacancyDetails.navigationItem.localized().uppercased()
     }
     

@@ -49,7 +49,7 @@ class WebImageVIew: UIImageView {
         
         let md5Hash = Insecure.MD5.hash(data: url.absoluteString.data(using: .utf8)!)
         let md5String =  md5Hash.map({ String(format: "%02hhx", $0) }).joined()
-        let imageFileUrl = AppManager.cacheUrl(fileName: "\(md5String).jpg")
+        let imageFileUrl = AppManager.imageCacheUrl(fileName: "\(md5String).jpg")
         if let imageData = try? Data(contentsOf: imageFileUrl), let imageFromFile = UIImage(data: imageData) {
             WebImageVIew.imageCache.setObject(imageFromFile, forKey: url as NSURL)
             present(image: imageFromFile)

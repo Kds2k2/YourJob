@@ -12,6 +12,39 @@ class VacancyDetailsViewModel {
     let components: [VacancyDetailComponentViewModel]
     let employer: VacancyEmployerViewModel
     
+    convenience init(with vacancy: YourJobVacancy) {
+        let employer = VacancyEmployerViewModel(with: vacancy.employer!)
+        var components: [VacancyDetailComponentViewModel] = []
+        
+        let title = vacancy.title.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !title.isEmpty {
+            components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.jobTitle.localized(), text: title, isHighlight: true))
+        }
+        
+        let description = (vacancy.description ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        if !description.isEmpty {
+            components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.jobDescription.localized(), text: description, isHighlight: false))
+        }
+        
+        let location = (vacancy.location ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
+        if !location.isEmpty {
+            components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.location.localized(), text: location, isHighlight: false))
+        }
+        
+        let isRemote = (vacancy.isRemote ? AppString.State.yes : AppString.State.no).localized()
+        components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.isRemote.localized(), text: isRemote, isHighlight: false))
+        
+        let salary = max(0, vacancy.salary)
+        if salary > 0 {
+            components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.salary.localized(), text: "\(salary) грн.", isHighlight: true))
+        }
+        
+        let date = Date.fromISO8601String(date: vacancy.updatedAt).toString(format: "d MMMM, yyyy, HH:mm")
+        components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.published.localized(), text: date, isHighlight: false))
+        
+        self.init(with: employer, components: components)
+    }
+    
     init(with employer: VacancyEmployerViewModel, components: [VacancyDetailComponentViewModel]) {
         self.components = components
         self.employer = employer

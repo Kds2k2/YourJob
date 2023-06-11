@@ -31,6 +31,13 @@
 		2615BA6B2A2D0CA400649D61 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6A2A2D0CA400649D61 /* WelcomeViewController.swift */; };
 		2615BA6D2A2D121200649D61 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615BA6C2A2D121200649D61 /* String+Localized.swift */; };
 		2615BA712A2D12DA00649D61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2615BA732A2D12DA00649D61 /* Localizable.strings */; };
+		263D394D2A36414500622B88 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D394C2A36414500622B88 /* Api.swift */; };
+		263D39502A3642C000622B88 /* YourJobVacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D394F2A3642C000622B88 /* YourJobVacancy.swift */; };
+		263D39522A36430500622B88 /* YourJobEmployer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D39512A36430500622B88 /* YourJobEmployer.swift */; };
+		263D39542A3643F400622B88 /* YourJobCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D39532A3643F400622B88 /* YourJobCategory.swift */; };
+		263D39562A36443E00622B88 /* YourJobEmployerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D39552A36443E00622B88 /* YourJobEmployerConnection.swift */; };
+		263D39582A3644AA00622B88 /* YourJobVacancyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D39572A3644AA00622B88 /* YourJobVacancyConnection.swift */; };
+		263D395A2A364EB700622B88 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D39592A364EB700622B88 /* ApiError.swift */; };
 		2657ED132A34E42000B14A18 /* NSError+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657ED122A34E42000B14A18 /* NSError+Message.swift */; };
 		26813B172A2DF04500746C74 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26813B162A2DF04500746C74 /* AppLayout.swift */; };
 		2684B09A2A347B690023BD20 /* VacancyOfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684B0992A347B690023BD20 /* VacancyOfferViewModel.swift */; };
@@ -110,6 +117,13 @@
 		2615BA6E2A2D127500649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2615BA722A2D12DA00649D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2615BA742A2D12DE00649D61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		263D394C2A36414500622B88 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		263D394F2A3642C000622B88 /* YourJobVacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourJobVacancy.swift; sourceTree = "<group>"; };
+		263D39512A36430500622B88 /* YourJobEmployer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourJobEmployer.swift; sourceTree = "<group>"; };
+		263D39532A3643F400622B88 /* YourJobCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourJobCategory.swift; sourceTree = "<group>"; };
+		263D39552A36443E00622B88 /* YourJobEmployerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourJobEmployerConnection.swift; sourceTree = "<group>"; };
+		263D39572A3644AA00622B88 /* YourJobVacancyConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourJobVacancyConnection.swift; sourceTree = "<group>"; };
+		263D39592A364EB700622B88 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		2657ED122A34E42000B14A18 /* NSError+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Message.swift"; sourceTree = "<group>"; };
 		26813B162A2DF04500746C74 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 		2684B0992A347B690023BD20 /* VacancyOfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyOfferViewModel.swift; sourceTree = "<group>"; };
@@ -190,6 +204,7 @@
 		2615BA242A2CC9B500649D61 /* YourJob */ = {
 			isa = PBXGroup;
 			children = (
+				269CF10D2A3633C000F3427B /* Api */,
 				2615BA402A2CF0E400649D61 /* Extensions */,
 				2615BA412A2CF0F600649D61 /* Components */,
 				2615BA3A2A2CF04400649D61 /* Controllers */,
@@ -330,6 +345,18 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		263D394E2A36428D00622B88 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				263D394F2A3642C000622B88 /* YourJobVacancy.swift */,
+				263D39512A36430500622B88 /* YourJobEmployer.swift */,
+				263D39532A3643F400622B88 /* YourJobCategory.swift */,
+				263D39552A36443E00622B88 /* YourJobEmployerConnection.swift */,
+				263D39572A3644AA00622B88 /* YourJobVacancyConnection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		268B721B2A2FA5AD000A177F /* UITableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +379,16 @@
 				268BF98B2A2E61FF00DD6EC2 /* SecureTextField.swift */,
 			);
 			path = SecureTextField;
+			sourceTree = "<group>";
+		};
+		269CF10D2A3633C000F3427B /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				263D394E2A36428D00622B88 /* Models */,
+				263D394C2A36414500622B88 /* Api.swift */,
+				263D39592A364EB700622B88 /* ApiError.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		26C2CA612A307B9900BE4C73 /* DashedLineView */ = {
@@ -655,9 +692,11 @@
 				26813B172A2DF04500746C74 /* AppLayout.swift in Sources */,
 				26C165352A2E0F5600568A78 /* ResetPasswordViewController.swift in Sources */,
 				26C2CA6C2A30C44000BE4C73 /* AppManager.swift in Sources */,
+				263D39542A3643F400622B88 /* YourJobCategory.swift in Sources */,
 				2684B09A2A347B690023BD20 /* VacancyOfferViewModel.swift in Sources */,
 				268BF98A2A2E5EC600DD6EC2 /* UIView+FirstResponder.swift in Sources */,
 				2615BA5F2A2CFE4F00649D61 /* AppString.swift in Sources */,
+				263D39502A3642C000622B88 /* YourJobVacancy.swift in Sources */,
 				26C2CA7B2A30E05600BE4C73 /* VacancyFilterBoolViewModel.swift in Sources */,
 				268B722B2A2FC09D000A177F /* VacancySectionHeaderViewCell.swift in Sources */,
 				26C165372A2E0F6B00568A78 /* SignUpRegisterViewController.swift in Sources */,
@@ -674,12 +713,16 @@
 				2615BA672A2D09C900649D61 /* Date+ISO8601.swift in Sources */,
 				268B721A2A2FA204000A177F /* VacancyFilterViewController.swift in Sources */,
 				26C2CA8C2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift in Sources */,
+				263D39522A36430500622B88 /* YourJobEmployer.swift in Sources */,
 				26C2CA8A2A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift in Sources */,
 				26C2CA6E2A30D3AD00BE4C73 /* VacancyFilterViewModel.swift in Sources */,
 				26C2CA862A30EFBE00BE4C73 /* VacancyFilterBoolViewCell.swift in Sources */,
 				2615BA452A2CF1B600649D61 /* TestViewController.swift in Sources */,
+				263D39582A3644AA00622B88 /* YourJobVacancyConnection.swift in Sources */,
+				263D39562A36443E00622B88 /* YourJobEmployerConnection.swift in Sources */,
 				268B72252A2FB240000A177F /* VacancyDetailsContentViewCell.swift in Sources */,
 				268B722D2A2FC2FB000A177F /* VacancyDetailComponentViewModel.swift in Sources */,
+				263D394D2A36414500622B88 /* Api.swift in Sources */,
 				26C2CA632A309ABE00BE4C73 /* VacancyEmployerViewModel.swift in Sources */,
 				2615BA262A2CC9B500649D61 /* AppDelegate.swift in Sources */,
 				268BF98C2A2E61FF00DD6EC2 /* SecureTextField.swift in Sources */,
@@ -691,6 +734,7 @@
 				268B72212A2FB1A7000A177F /* VacancyDetailsViewModel.swift in Sources */,
 				26C2CA7D2A30E06900BE4C73 /* VacancyFilterEnumViewModel.swift in Sources */,
 				2615BA612A2CFEFD00649D61 /* AppColor.swift in Sources */,
+				263D395A2A364EB700622B88 /* ApiError.swift in Sources */,
 				2684B09E2A3481E50023BD20 /* Date+String.swift in Sources */,
 				26C165332A2E0F3E00568A78 /* LoginWithEmailViewController.swift in Sources */,
 				26C165392A2E0F7A00568A78 /* SignUpCompleteViewController.swift in Sources */,
