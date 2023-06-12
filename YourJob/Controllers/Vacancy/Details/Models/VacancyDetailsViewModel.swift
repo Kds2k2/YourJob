@@ -18,7 +18,7 @@ class VacancyDetailsViewModel {
         
         let title = vacancy.title.trimmingCharacters(in: .whitespacesAndNewlines)
         if !title.isEmpty {
-            components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.jobTitle.localized(), text: title, isHighlight: true))
+            components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.jobTitle.localized(), text: title.capitalized, isHighlight: true))
         }
         
         let description = (vacancy.description ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
@@ -28,7 +28,7 @@ class VacancyDetailsViewModel {
         
         let location = (vacancy.location ?? String()).trimmingCharacters(in: .whitespacesAndNewlines)
         if !location.isEmpty {
-            components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.location.localized(), text: location, isHighlight: false))
+            components.append(VacancyDetailComponentViewModel(with: AppString.View.VacancyDetails.location.localized(), text: location.capitalized, isHighlight: false))
         }
         
         let isRemote = (vacancy.isRemote ? AppString.State.yes : AppString.State.no).localized()

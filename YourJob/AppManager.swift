@@ -97,3 +97,85 @@ extension AppManager {
         return UserPoolAuthProvider()
     }()
 }
+
+extension AppManager {
+    struct Keys {
+        static let categories = "filter.categories"
+        static let title = "filter.title"
+        static let location = "filter.location"
+        static let isRemote = "filter.isRemote"
+        static let salary = "filter.salary"
+    }
+    
+    var filter: ListYourJobVacancyFilterInput? {
+        set {
+            if let value = newValue {
+                if let categories = value.or?.compactMap({ $0?.category?.eq }), !categories.isEmpty {
+                    UserDefaults.standard.setValue(categories, forKey: Keys.categories)
+                } else {
+                    UserDefaults.standard.removeObject(forKey: Keys.categories)
+                }
+                
+                if let title = value.title?.contains, !title.isEmpty {
+                    UserDefaults.standard.setValue(title, forKey: Keys.title)
+                } else {
+                    UserDefaults.standard.removeObject(forKey: Keys.title)
+                }
+                
+                if let location = value.location?.contains, !location.isEmpty {
+                    UserDefaults.standard.setValue(location, forKey: Keys.location)
+                } else {
+                    UserDefaults.standard.removeObject(forKey: Keys.location)
+                }
+                
+                if let isRemote = value.isRemote?.eq {
+                    UserDefaults.standard.setValue(isRemote, forKey: Keys.isRemote)
+                } else {
+                    UserDefaults.standard.removeObject(forKey: Keys.isRemote)
+                }
+                
+                if let salary = value.salary?.gt, salary > 0 {
+                    UserDefaults.standard.setValue(salary, forKey: Keys.salary)
+                } else {
+                    UserDefaults.standard.removeObject(forKey: Keys.salary)
+                }
+                
+            } else {
+                UserDefaults.standard.removeObject(forKey: Keys.categories)
+                UserDefaults.standard.removeObject(forKey: Keys.title)
+                UserDefaults.standard.removeObject(forKey: Keys.location)
+                UserDefaults.standard.removeObject(forKey: Keys.isRemote)
+                UserDefaults.standard.removeObject(forKey: Keys.salary)
+            }
+        }
+        get {
+            var filter: ListYourJobVacancyFilterInput? = nil
+            if let categories = UserDefaults.standard.object(forKey: Keys.categories) as? [String] {
+                filter = filter ?? ListYourJobVacancyFilterInput()
+                filter?.or = categories.compactMap({ ListYourJobCategoryInput(category: TableStringFilterInput(eq: $0))})
+            }
+            
+            if let title = UserDefaults.standard.object(forKey: Keys.title) as? String {
+                filter = filter ?? ListYourJobVacancyFilterInput()
+                filter?.title = TableStringFilterInput(contains: title)
+            }
+            
+            if let location = UserDefaults.standard.object(forKey: Keys.location) as? String {
+                filter = filter ?? ListYourJobVacancyFilterInput()
+                filter?.location = TableStringFilterInput(contains: location)
+            }
+            
+            if let isRemote = UserDefaults.standard.object(forKey: Keys.isRemote) as? Bool {
+                filter = filter ?? ListYourJobVacancyFilterInput()
+                filter?.isRemote = TableBooleanFilterInput(eq: isRemote)
+            }
+            
+            if let salary = UserDefaults.standard.object(forKey: Keys.salary) as? Int {
+                filter = filter ?? ListYourJobVacancyFilterInput()
+                filter?.salary = TableIntFilterInput(gt: salary)
+            }
+            
+            return filter
+        }
+    }
+}

@@ -27,7 +27,7 @@ extension YourJobCategory: CustomStringConvertible {
     public var description: String {
         switch self {
         case .delivery: return AppString.VacancyCategory.delivery
-        case .serviceIndustries: return AppString.VacancyCategory.delivery
+        case .serviceIndustries: return AppString.VacancyCategory.serviceIndustries
         case .salesAndPurchase: return AppString.VacancyCategory.salesAndPurchase
         case .design: return AppString.VacancyCategory.design
         case .entertainment: return AppString.VacancyCategory.entertainment

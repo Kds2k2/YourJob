@@ -11,7 +11,6 @@ import AWSCognitoIdentityProvider
 
 class VacancyOffersViewController: UIViewController {
 
-    private var filter: ListYourJobVacancyFilterInput? = nil
     private var vacancies: [String: YourJobVacancy] = [:]
     private var items: [VacancyOfferViewModel] = []
     private var nextToken: String? = nil
@@ -75,6 +74,7 @@ class VacancyOffersViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: AppImage.Chevron.left, style: .plain, target: self, action: #selector(cancel))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: AppImage.Filter.normal, style: .plain, target: self, action: #selector(presentFilter))
         
         view.addSubview(backgroundView)
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +90,12 @@ class VacancyOffersViewController: UIViewController {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         
-        reloadData(with: nil, nextToken: nil)
+        reloadData(with: AppManager.shared.filter, nextToken: nil)
+    }
+    
+    @objc private func presentFilter() {
+        let viewController = VacancyFilterViewController(with: AppManager.shared.filter, delegate: self)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc private func cancel() {
@@ -167,5 +172,15 @@ extension VacancyOffersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         presentVacancy(with: items[indexPath.item].vacancyId)
+    }
+}
+
+//MARK: VacancyFilterViewControllerDelegate
+extension VacancyOffersViewController: VacancyFilterViewControllerDelegate {
+    func vacancyFilter(viewController: VacancyFilterViewController, didAccept filter: ListYourJobVacancyFilterInput?) {
+        AppManager.shared.filter = filter
+        self.nextToken = nil
+        self.vacancies.removeAll()
+        self.reloadData(with: AppManager.shared.filter, nextToken: self.nextToken)
     }
 }

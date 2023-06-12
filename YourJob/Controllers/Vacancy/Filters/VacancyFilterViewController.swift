@@ -8,14 +8,25 @@
 
 import UIKit
 
+protocol VacancyFilterViewControllerDelegate: AnyObject {
+    func vacancyFilter(viewController: VacancyFilterViewController, didAccept filter: ListYourJobVacancyFilterInput?)
+}
+
+extension VacancyFilterViewControllerDelegate {
+    //MARK: Optionals
+    func vacancyFilter(viewController: VacancyFilterViewController, didAccept filter: ListYourJobVacancyFilterInput?) { }
+}
+
 class VacancyFilterViewController: UIViewController {
     
     private var model: VacancyFilterViewModel!
+    public weak var delegate: VacancyFilterViewControllerDelegate? = nil
     
-    init() {
+    init(with filter: ListYourJobVacancyFilterInput? = nil, delegate: VacancyFilterViewControllerDelegate) {
         super.init(nibName: nil, bundle: nil)
-        model = VacancyFilterViewModel.mock()
         self.title = AppString.View.VacancyFilter.navigationItem.localized().uppercased()
+        self.delegate = delegate
+        model = VacancyFilterViewModel(with: filter ?? ListYourJobVacancyFilterInput())
     }
     
     required init?(coder: NSCoder) {
@@ -173,6 +184,7 @@ class VacancyFilterViewController: UIViewController {
     }
     
     private func accept() {
+        self.delegate?.vacancyFilter(viewController: self, didAccept: model.filter)
         navigationController?.popViewController(animated: true)
     }
     

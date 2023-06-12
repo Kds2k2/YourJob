@@ -48,7 +48,7 @@ class VacancyOfferViewModel {
         }
         
         if let vacancyTitle = vacancyTitle?.trimmingCharacters(in: .whitespacesAndNewlines), !vacancyTitle.isEmpty {
-            self.attributedVacancyTitle = NSAttributedString(string: vacancyTitle, attributes: [.font: AppFont.Cell.title, .foregroundColor: AppColor.Cell.text])
+            self.attributedVacancyTitle = NSAttributedString(string: vacancyTitle.capitalized, attributes: [.font: AppFont.Cell.title, .foregroundColor: AppColor.Cell.text])
         } else {
             self.attributedVacancyTitle = nil
         }

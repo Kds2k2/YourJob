@@ -11,10 +11,12 @@ import UIKit
 
 class VacancyFIlterOptionViewModel {
     let title: String
+    var value: YourJobCategory
     var isSelected: Bool
     
-    init(with title: String, isSelected: Bool) {
-        self.title = title
+    init(with value: YourJobCategory, isSelected: Bool) {
+        self.value = value
+        self.title = value.description.localized()
         self.isSelected = isSelected
     }
 }

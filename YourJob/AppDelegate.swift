@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         controller.navigationBar.compactAppearance = navigationBaAppearance
         controller.navigationBar.scrollEdgeAppearance = navigationBaAppearance
         controller.navigationBar.backgroundColor = .clear
+        controller.navigationBar.tintColor = .label
         controller.navigationBar.isHidden = true
         return controller
     }()

@@ -72,6 +72,13 @@ struct AppImage {
                                     withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
      }
     
+    struct Filter {
+        private static let configuration = UIImage.SymbolConfiguration(weight: .regular)
+
+        static let normal = UIImage(systemName: "text.justify",
+                                    withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
+    }
+    
     struct Return {
         private static let configuration = UIImage.SymbolConfiguration(weight: .regular)
 
