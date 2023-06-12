@@ -28,7 +28,16 @@ class AppManager {
     }()
     
     func clearCache() {
-        //TODO: ...
+        do {
+            try appSync.clearCaches()
+            AppManager.shared.filter = nil
+            let imageCacheUrl = AppManager.directoryUrl(directory: "ImageCache")
+            let imageUrls = try FileManager.default.contentsOfDirectory(at: imageCacheUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            try imageUrls.forEach({ try FileManager.default.removeItem(at: $0)})
+        }
+        catch {
+            AppLog.error(error)
+        }
     }
 }
 
@@ -109,42 +118,33 @@ extension AppManager {
     
     var filter: ListYourJobVacancyFilterInput? {
         set {
-            if let value = newValue {
-                if let categories = value.or?.compactMap({ $0?.category?.eq }), !categories.isEmpty {
-                    UserDefaults.standard.setValue(categories, forKey: Keys.categories)
-                } else {
-                    UserDefaults.standard.removeObject(forKey: Keys.categories)
-                }
-                
-                if let title = value.title?.contains, !title.isEmpty {
-                    UserDefaults.standard.setValue(title, forKey: Keys.title)
-                } else {
-                    UserDefaults.standard.removeObject(forKey: Keys.title)
-                }
-                
-                if let location = value.location?.contains, !location.isEmpty {
-                    UserDefaults.standard.setValue(location, forKey: Keys.location)
-                } else {
-                    UserDefaults.standard.removeObject(forKey: Keys.location)
-                }
-                
-                if let isRemote = value.isRemote?.eq {
-                    UserDefaults.standard.setValue(isRemote, forKey: Keys.isRemote)
-                } else {
-                    UserDefaults.standard.removeObject(forKey: Keys.isRemote)
-                }
-                
-                if let salary = value.salary?.gt, salary > 0 {
-                    UserDefaults.standard.setValue(salary, forKey: Keys.salary)
-                } else {
-                    UserDefaults.standard.removeObject(forKey: Keys.salary)
-                }
-                
+            if let categories = newValue?.or?.compactMap({ $0?.category?.eq }), !categories.isEmpty {
+                UserDefaults.standard.setValue(categories, forKey: Keys.categories)
             } else {
                 UserDefaults.standard.removeObject(forKey: Keys.categories)
+            }
+            
+            if let title = newValue?.title?.contains, !title.isEmpty {
+                UserDefaults.standard.setValue(title, forKey: Keys.title)
+            } else {
                 UserDefaults.standard.removeObject(forKey: Keys.title)
+            }
+            
+            if let location = newValue?.location?.contains, !location.isEmpty {
+                UserDefaults.standard.setValue(location, forKey: Keys.location)
+            } else {
                 UserDefaults.standard.removeObject(forKey: Keys.location)
+            }
+            
+            if let isRemote = newValue?.isRemote?.eq {
+                UserDefaults.standard.setValue(isRemote, forKey: Keys.isRemote)
+            } else {
                 UserDefaults.standard.removeObject(forKey: Keys.isRemote)
+            }
+            
+            if let salary = newValue?.salary?.gt, salary > 0 {
+                UserDefaults.standard.setValue(salary, forKey: Keys.salary)
+            } else {
                 UserDefaults.standard.removeObject(forKey: Keys.salary)
             }
         }

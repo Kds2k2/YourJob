@@ -6,8 +6,7 @@ target 'YourJob' do
   use_frameworks!
 
   # Pods for YourJob
-  pod 'AWSAppSync'
-  pod 'AWSCognitoIdentityProvider'
+
 end
 
 post_install do |installer|

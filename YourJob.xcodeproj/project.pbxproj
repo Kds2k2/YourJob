@@ -78,6 +78,7 @@
 		26C2CA882A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA872A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift */; };
 		26C2CA8A2A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA892A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift */; };
 		26C2CA8C2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C2CA8B2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift */; };
+		26CED2582A3743010033F464 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26CED2572A3743010033F464 /* GoogleService-Info.plist */; };
 		511A1ABDFC41AB896FD099DF /* Pods_YourJob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3FF86C71680D0F3566F8D3 /* Pods_YourJob.framework */; };
 		5ED4CBB599843B021B98B23B /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A099A734908F510448767573 /* awsconfiguration.json */; };
 		A55E4D362A2D3D1A008CCC2F /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E4D352A2D3D1A008CCC2F /* AppImage.swift */; };
@@ -163,6 +164,7 @@
 		26C2CA872A3100A200BE4C73 /* VacancyFilterNumberViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterNumberViewCell.swift; sourceTree = "<group>"; };
 		26C2CA892A310EEA00BE4C73 /* VacancyFIlterOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFIlterOptionViewModel.swift; sourceTree = "<group>"; };
 		26C2CA8B2A310F0900BE4C73 /* VacancyFilterOptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFilterOptionViewCell.swift; sourceTree = "<group>"; };
+		26CED2572A3743010033F464 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73B47B21B645C8FE0510D7BD /* Pods-YourJob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourJob.debug.xcconfig"; path = "Target Support Files/Pods-YourJob/Pods-YourJob.debug.xcconfig"; sourceTree = "<group>"; };
 		A099A734908F510448767573 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		A55E4D352A2D3D1A008CCC2F /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				2615BA232A2CC9B500649D61 /* Products */,
 				AF267A2B7EA8D1226B00FCBC /* Pods */,
 				F9CBD3099C6E1E0B65F77C7B /* Frameworks */,
+				26CED2562A3742CF0033F464 /* GoogleService */,
 				D2F3E36FA6BFFBB199D6B18B /* AmplifyConfig */,
 			);
 			sourceTree = "<group>";
@@ -519,6 +522,14 @@
 			path = Section;
 			sourceTree = "<group>";
 		};
+		26CED2562A3742CF0033F464 /* GoogleService */ = {
+			isa = PBXGroup;
+			children = (
+				26CED2572A3743010033F464 /* GoogleService-Info.plist */,
+			);
+			path = GoogleService;
+			sourceTree = "<group>";
+		};
 		AF267A2B7EA8D1226B00FCBC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +568,7 @@
 				2615BA1F2A2CC9B500649D61 /* Frameworks */,
 				2615BA202A2CC9B500649D61 /* Resources */,
 				A812FCC0734516D91C36EFCE /* [CP] Embed Pods Frameworks */,
+				26CED2592A3745240033F464 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -616,6 +628,7 @@
 				2615BA322A2CC9B700649D61 /* LaunchScreen.storyboard in Resources */,
 				2615BA2F2A2CC9B700649D61 /* Assets.xcassets in Resources */,
 				2615BA582A2CF4C200649D61 /* Montserrat-SemiBold.otf in Resources */,
+				26CED2582A3743010033F464 /* GoogleService-Info.plist in Resources */,
 				2615BA712A2D12DA00649D61 /* Localizable.strings in Resources */,
 				2615BA512A2CF4C200649D61 /* Montserrat-Regular.otf in Resources */,
 				2615BA542A2CF4C200649D61 /* Montserrat-Black.otf in Resources */,
@@ -628,6 +641,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		26CED2592A3745240033F464 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		A812FCC0734516D91C36EFCE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -636,13 +669,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YourJob/Pods-YourJob-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YourJob/Pods-YourJob-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -888,6 +917,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YourJob/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Your Job";

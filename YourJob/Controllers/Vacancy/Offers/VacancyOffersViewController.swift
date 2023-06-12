@@ -60,10 +60,19 @@ class VacancyOffersViewController: UIViewController {
         view.alwaysBounceHorizontal = false
         view.isUserInteractionEnabled = true
         view.clipsToBounds = false
+        view.refreshControl = self.refreshControll
         view.register(VacancyOfferViewCell.self, forCellWithReuseIdentifier: VacancyOfferViewCell.defaultReuseIdentifier)
         view.dataSource = self
         view.delegate = self
         return view
+    }()
+    
+    lazy var refreshControll: UIRefreshControl = {
+        let controll = UIRefreshControl()
+        controll.attributedTitle = NSAttributedString(string: AppString.View.VacancyOffers.loading, attributes: [.font: AppFont.View.activity, .foregroundColor: AppColor.View.activity])
+        controll.tintColor = AppColor.View.activity
+        controll.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return controll
     }()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,6 +113,10 @@ class VacancyOffersViewController: UIViewController {
         presentQuestion(title: AppString.View.VacancyOffers.signOut, message: "\n" + AppString.Messages.confirmSignOut, actions: [yesAction, noAction])
     }
     
+    @objc private func refresh() {
+        self.reloadData(with: AppManager.shared.filter, nextToken: self.nextToken)
+    }
+    
     private func signOut() {
         AppManager.shared.userPool.currentUser()?.signOut()
         AppManager.shared.clearCache()
@@ -111,9 +124,24 @@ class VacancyOffersViewController: UIViewController {
     }
     
     private func reloadData(with filter: ListYourJobVacancyFilterInput?, nextToken: String?) {
+        if !refreshControll.isRefreshing {
+            UIView.animate(withDuration: 0.3, animations: {
+                let contentOffSet = CGPoint(x: 0, y: self.collectionView.contentOffset.y - 80)
+                self.collectionView.setContentOffset(contentOffSet, animated: false)
+            }, completion: { _ in
+                self.refreshControll.beginRefreshing()
+                self.reloadData(with: filter, nextToken: nextToken)
+            })
+            return
+        }
+        
         let query = ListYourJobVacanciesQuery(filter: filter, limit: 20, nextToken: nextToken)
         AppManager.shared.appSync.fetch(query: query, cachePolicy: .returnCacheDataAndFetch, queue: .global()) { result, error in
             DispatchQueue.main.async {
+                defer {
+                    self.refreshControll.endRefreshing()
+                }
+                
                 if let error = error {
                     AppLog.error(error)
                     return

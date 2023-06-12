@@ -76,6 +76,7 @@ struct AppString {
         struct VacancyOffers {
             static let navigationItem = "Offers"
             static let signOut = "Sign Out"
+            static let loading = "Loading..."
         }
     }
     
