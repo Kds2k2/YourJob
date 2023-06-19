@@ -63,7 +63,7 @@ class ResetPasswordViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.ResetPassword.title
+        view.text = AppString.View.ResetPassword.title.localized()
         view.textAlignment = .center
         view.textColor = AppColor.View.title
         view.font = AppFont.View.title
@@ -73,7 +73,7 @@ class ResetPasswordViewController: UIViewController {
     
     var descriptionLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.ResetPassword.description
+        view.text = AppString.View.ResetPassword.description.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description
@@ -96,7 +96,7 @@ class ResetPasswordViewController: UIViewController {
         view.isSecureTextEntry = true
         view.isSecureTextToggleEnabled = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.password, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.password.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -118,7 +118,7 @@ class ResetPasswordViewController: UIViewController {
         view.isSecureTextEntry = true
         view.isSecureTextToggleEnabled = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confirmPassword, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confirmPassword.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -138,7 +138,7 @@ class ResetPasswordViewController: UIViewController {
         view.returnKeyType = .default
         view.enablesReturnKeyAutomatically = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confrimationCode, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confrimationCode.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -192,7 +192,7 @@ class ResetPasswordViewController: UIViewController {
     
     var resendCodeLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.ResetPassword.resendCode
+        view.text = AppString.View.ResetPassword.resendCode.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description

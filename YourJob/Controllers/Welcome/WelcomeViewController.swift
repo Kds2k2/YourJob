@@ -13,9 +13,8 @@ class WelcomeViewController: UIViewController {
     
     var backgroundView: BackgroundView = {
         let view = BackgroundView()
-        view.imageView.image = AppImage.BackGround.lightBlue
         //view.effectView.effect = UIBlurEffect(style: .regular)
-        view.backgroundColor = .clear
+        view.backgroundColor = .systemBackground
         return view
     }()
     
@@ -55,7 +54,7 @@ class WelcomeViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.Welcome.title
+        view.text = AppString.View.Welcome.title.localized()
         view.textAlignment = .center
         view.textColor = AppColor.View.title
         view.font = AppFont.View.title
@@ -65,7 +64,7 @@ class WelcomeViewController: UIViewController {
     
     var descriptionLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.Welcome.description
+        view.text = AppString.View.Welcome.description.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description
@@ -87,7 +86,7 @@ class WelcomeViewController: UIViewController {
     
     var signUpLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.Welcome.signUpPrompt
+        view.text = AppString.View.Welcome.signUpPrompt.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description

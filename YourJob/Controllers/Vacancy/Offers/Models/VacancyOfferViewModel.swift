@@ -20,7 +20,7 @@ class VacancyOfferViewModel {
     var attributedPublishedDate: NSAttributedString?
     
     convenience init(with vacancy: YourJobVacancy) {
-        self.init(with: vacancy.id, timestamp: vacancy.updatedAt, employerLogoUrl: vacancy.employer?.logoUrl, employerTitle: vacancy.employer?.title, vacancyCategory: vacancy.category.description, vacancyTitle: vacancy.title, vacancyDescription: vacancy.description, vacancySalary: vacancy.salary)
+        self.init(with: vacancy.id, timestamp: vacancy.updatedAt, employerLogoUrl: vacancy.employer?.logoUrl, employerTitle: vacancy.employer?.title, vacancyCategory: vacancy.category.description.localized(), vacancyTitle: vacancy.title, vacancyDescription: vacancy.description, vacancySalary: vacancy.salary)
     }
     
     init(with vacancyId: String!, timestamp: String!, employerLogoUrl: String?, employerTitle: String?,

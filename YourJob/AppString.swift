@@ -12,7 +12,7 @@ struct AppString {
     struct View {
         struct Welcome {
             static let title = "Welcome"
-            static let description = "Lorem ipsum dolor sit amet. Est quisquam impedit ut nulla minus et ipsum adipisci in dolorum commodi. Non velit cupiditate est consequatur officia et asperiores atque 33 voluptate voluptatem sit voluptas ducimus eos laborum laudantium. Ut voluptates velit aut ipsa autem ut unde repellat. Ad totam quae est galisum enim id omnis consequatur."
+            static let description = "YourJob is a cutting-edge app designed to revolutionize the way you search for your dream job. Whether you're a seasoned professional looking for a career upgrade or a fresh graduate taking your first steps into the professional world, YourJob is here to empower you in your job search journey."
             static let signUpPrompt = "Don't have an account yet?"
         }
         
@@ -81,18 +81,18 @@ struct AppString {
     }
     
     struct Messages {
-        static let firstNameRequired = "First Name is required.\nPlease enter a first name and try again."
-        static let lastNameRequired = "Last Name is required.\nPlease enter a last name and try again."
-        static let emailRequired = "Email is required.\nPlease enter valid email and try again."
-        static let passwordRequired = "Password is required.\nPlease enter password and try again."
-        static let passwordWron = "Password is wrong.\nYour password must be at least 8 characters long and must contain at least one upper case, lower case, number and special character."
-        static let confirmPasswordRequired = "Confirm Password is required.\nPlease enter confirm password and try again."
-        static let enterEmailToResetPassword = "Email is required.\nPlease enter your email if you want to reset your password."
-        static let confirmPasswordWrong = "Password is wrong.\nPassword & Confirm Password do not match."
-        static let confirmationCodeRequired = "Confirmation Code is required.\nPlease enter confirmation code that was sent to the email address you providedand and try again."
-        static let passwordResetSuccessfully = "Password reset.\nPlease log into the account with your email and new password."
+        static let firstNameRequired = "First Name is required.".localized() + "\n" + "Please enter a first name and try again.".localized()
+        static let lastNameRequired = "Last Name is required.".localized() + "\n" + "Please enter a last name and try again.".localized()
+        static let emailRequired = "Email is required.".localized() + "\n" + "Please enter valid email and try again.".localized()
+        static let passwordRequired = "Password is required.".localized() + "\n" + "Please enter password and try again.".localized()
+        static let passwordWron = "Password is wrong.".localized() + "\n" + "Your password must be at least 8 characters long and must contain at least one upper case, lower case, number and special character.".localized()
+        static let confirmPasswordRequired = "Confirm Password is required.".localized() + "\n" + "Please enter confirm password and try again.".localized()
+        static let enterEmailToResetPassword = "Email is required.".localized() + "\n" + "Please enter your email if you want to reset your password.".localized()
+        static let confirmPasswordWrong = "Password is wrong.".localized() + "\n" + "Password & Confirm Password do not match.".localized()
+        static let confirmationCodeRequired = "Confirmation Code is required.".localized() + "\n" + "Please enter confirmation code that was sent to the email address you providedand and try again.".localized()
+        static let passwordResetSuccessfully = "Password reset.".localized() + "\n" + "Please log into the account with your email and new password.".localized()
         static let confirmationCodeResent = "The confirmation code has been resent."
-        static let accountCreatedAndConfirmed = "Congratulation!\nYour account has been successfully created and confirmed."
+        static let accountCreatedAndConfirmed = "Congratulation!".localized() + "\n" + "Your account has been successfully created and confirmed.".localized()
         static let confirmSignOut = "Are you sure you want to sign out?"
     }
     

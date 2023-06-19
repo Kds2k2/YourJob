@@ -60,7 +60,7 @@ class SignUpRegisterViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.SignUpRegister.title
+        view.text = AppString.View.SignUpRegister.title.localized()
         view.textAlignment = .center
         view.textColor = AppColor.View.title
         view.font = AppFont.View.title
@@ -70,7 +70,7 @@ class SignUpRegisterViewController: UIViewController {
     
     var descriptionLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.SignUpRegister.description
+        view.text = AppString.View.SignUpRegister.description.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description
@@ -90,7 +90,7 @@ class SignUpRegisterViewController: UIViewController {
         view.returnKeyType = .next
         view.enablesReturnKeyAutomatically = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.firstName, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.firstName.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -110,7 +110,7 @@ class SignUpRegisterViewController: UIViewController {
         view.returnKeyType = .next
         view.enablesReturnKeyAutomatically = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.lastName, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.lastName.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -130,7 +130,7 @@ class SignUpRegisterViewController: UIViewController {
         view.returnKeyType = .next
         view.enablesReturnKeyAutomatically = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.phone, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.phone.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -182,7 +182,7 @@ class SignUpRegisterViewController: UIViewController {
         view.returnKeyType = .next
         view.enablesReturnKeyAutomatically = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.email, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.email.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -204,7 +204,7 @@ class SignUpRegisterViewController: UIViewController {
         view.isSecureTextEntry = true
         view.isSecureTextToggleEnabled = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.password, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.password.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -226,7 +226,7 @@ class SignUpRegisterViewController: UIViewController {
         view.isSecureTextEntry = true
         view.isSecureTextToggleEnabled = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confirmPassword, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confirmPassword.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor

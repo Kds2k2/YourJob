@@ -53,7 +53,7 @@ class VacancyDetailsViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.VacancyDetails.title
+        view.text = AppString.View.VacancyDetails.title.localized()
         view.textAlignment = .center
         view.textColor = AppColor.View.title
         view.font = AppFont.View.title
@@ -63,7 +63,7 @@ class VacancyDetailsViewController: UIViewController {
     
     var descriptionLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.VacancyDetails.description
+        view.text = AppString.View.VacancyDetails.description.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description

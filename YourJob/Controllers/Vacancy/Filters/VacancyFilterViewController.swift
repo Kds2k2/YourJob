@@ -64,7 +64,7 @@ class VacancyFilterViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.VacancyFilter.title
+        view.text = AppString.View.VacancyFilter.title.localized()
         view.textAlignment = .center
         view.textColor = AppColor.View.title
         view.font = AppFont.View.title
@@ -74,7 +74,7 @@ class VacancyFilterViewController: UIViewController {
     
     var descriptionLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.VacancyFilter.description
+        view.text = AppString.View.VacancyFilter.description.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description

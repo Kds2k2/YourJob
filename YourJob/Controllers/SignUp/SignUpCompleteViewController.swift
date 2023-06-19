@@ -65,7 +65,7 @@ class SignUpCompleteViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.SignUpConfirm.title
+        view.text = AppString.View.SignUpConfirm.title.localized()
         view.textAlignment = .center
         view.textColor = AppColor.View.title
         view.font = AppFont.View.title
@@ -75,7 +75,7 @@ class SignUpCompleteViewController: UIViewController {
     
     var descriptionLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.SignUpConfirm.description
+        view.text = AppString.View.SignUpConfirm.description.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description
@@ -95,7 +95,7 @@ class SignUpCompleteViewController: UIViewController {
         view.returnKeyType = .default
         view.enablesReturnKeyAutomatically = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confrimationCode, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.confrimationCode.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -149,7 +149,7 @@ class SignUpCompleteViewController: UIViewController {
     
     var resendCodeLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.ResetPassword.resendCode
+        view.text = AppString.View.ResetPassword.resendCode.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description

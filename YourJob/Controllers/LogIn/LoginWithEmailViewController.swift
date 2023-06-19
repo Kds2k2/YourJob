@@ -63,7 +63,7 @@ class LoginWithEmailViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.LoginWithEmail.title
+        view.text = AppString.View.LoginWithEmail.title.localized()
         view.textAlignment = .center
         view.textColor = AppColor.View.title
         view.font = AppFont.View.title
@@ -73,7 +73,7 @@ class LoginWithEmailViewController: UIViewController {
     
     var descriptionLabel: UILabel = {
         let view = UILabel()
-        view.text = AppString.View.LoginWithEmail.description
+        view.text = AppString.View.LoginWithEmail.description.localized()
         view.textColor = AppColor.View.description
         view.textAlignment = .center
         view.font = AppFont.View.description
@@ -93,7 +93,7 @@ class LoginWithEmailViewController: UIViewController {
         view.returnKeyType = .next
         view.enablesReturnKeyAutomatically = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.email, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.email.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor
@@ -115,7 +115,7 @@ class LoginWithEmailViewController: UIViewController {
         view.isSecureTextEntry = true
         view.isSecureTextToggleEnabled = true
         view.font = AppFont.Input.text
-        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.password, attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
+        view.attributedPlaceholder = NSAttributedString(string: AppString.Input.Placeholder.password.localized(), attributes: [.font: AppFont.Input.placeholder, .foregroundColor: AppColor.Input.placeholder])
         view.textColor = AppColor.Input.text
         view.layer.cornerRadius = AppLayout.Input.cornerRadius
         view.layer.borderColor = AppColor.Input.border.cgColor

@@ -69,7 +69,7 @@ class VacancyOffersViewController: UIViewController {
     
     lazy var refreshControll: UIRefreshControl = {
         let controll = UIRefreshControl()
-        controll.attributedTitle = NSAttributedString(string: AppString.View.VacancyOffers.loading, attributes: [.font: AppFont.View.activity, .foregroundColor: AppColor.View.activity])
+        controll.attributedTitle = NSAttributedString(string: AppString.View.VacancyOffers.loading.localized(), attributes: [.font: AppFont.View.activity, .foregroundColor: AppColor.View.activity])
         controll.tintColor = AppColor.View.activity
         controll.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return controll
@@ -110,7 +110,7 @@ class VacancyOffersViewController: UIViewController {
     @objc private func cancel() {
         let noAction = UIAlertAction(title: AppString.Button.no.localized(), style: .default)
         let yesAction = UIAlertAction(title: AppString.Button.yes.localized(), style: .destructive, handler: { _ in self.signOut() })
-        presentQuestion(title: AppString.View.VacancyOffers.signOut, message: "\n" + AppString.Messages.confirmSignOut, actions: [yesAction, noAction])
+        presentQuestion(title: AppString.View.VacancyOffers.signOut, message: "\n" + AppString.Messages.confirmSignOut.localized(), actions: [yesAction, noAction])
     }
     
     @objc private func refresh() {
