@@ -14,23 +14,24 @@ YourJob — навчальний проєкт мобільного застос�
 
 Інтерфейс застосунку (натисніть, щоб переглянути у репозиторії):
 
-![LaunchScreen](Screenshots/LaunchScreen.png)
-
-![Welcome](Screenshots/WelcomeScreen.png)
-
-![Register](Screenshots/RegisterScreen.png)
-
-![Confirmation](Screenshots/ConfirmationCodeScreen.png)
-
-![Login](Screenshots/LoginScreen.png)
-
-![ForgotPassword](Screenshots/ForgorPasswordScreen.png)
-
-![Jobs](Screenshots/JobsScreen.png)
-
-![Details](Screenshots/DetailsScreen.png)
-
-![Filter](Screenshots/FilterScreen.png)
+<p align="center">
+  <img src="Screenshots/LaunchScreen.png" alt="LaunchScreen" width="30%"/>
+  <img src="Screenshots/WelcomeScreen.png" alt="Welcome" width="30%"/>
+  <img src="Screenshots/RegisterScreen.png" alt="Register" width="30%"/>
+  
+</p>
+<p align="center">
+  <img src="Screenshots/ConfirmationCodeScreen.png" alt="Confirmation" width="30%"/>
+  <img src="Screenshots/LoginScreen.png" alt="Login" width="30%"/>
+  <img src="Screenshots/ForgorPasswordScreen.png" alt="ForgotPassword" width="30%"/>
+  
+</p>
+<p align="center">
+  <img src="Screenshots/JobsScreen.png" alt="Jobs" width="30%"/>
+  <img src="Screenshots/DetailsScreen.png" alt="Details" width="30%"/>
+  <img src="Screenshots/FilterScreen.png" alt="Filter" width="30%"/>
+  
+</p>
 
 ### Архітектура та дизайн
 
@@ -103,12 +104,3 @@ YourJob — навчальний проєкт мобільного застос�
 - `VacancyOffersViewController` — список вакансій, Pull-to-Refresh, пагінація/підвантаження
 - `VacancyFilterViewController` — налаштування фільтрів (категорії, назва, локація, віддалено, зарплата)
 - `VacancyDetailsViewController` — деталі вакансії та інформація про роботодавця
-
-### Автори та кредити
-
-- Автор курсового проєкту: Дмитро Крижановський
-- Керівник: Юрій Форкун
-
-### Ліцензія
-
-Освітній/демонстраційний проєкт. Уточніть умови ліцензування перед комерційним використанням.
