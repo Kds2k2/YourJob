@@ -1,6 +1,6 @@
 ## YourJob — mobile iOS app for job search
 
-It's a mobile application training project that helps you quickly find vacancies based on specified criteria. The application is implemented for iOS with an emphasis on modern architecture, AWS cloud services, and a user-friendly interface.
+iOS job search app (UIKit, MVC) on AWS AppSync GraphQL, DynamoDB and Cognito; persistent filters, iPhone & iPad
 
 ### Features
 
